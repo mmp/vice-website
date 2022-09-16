@@ -1,0 +1,12 @@
+cd assets
+sass --watch scss:css
+
+ffmpeg -ss 00:00:50 \   # start offset
+       -i ~/Desktop/Screen\ Recording\ 2022-09-15\ at\ 10.12.44\ AM.mov \
+       -t 00:00:29 \ #  length to extract
+       -pix_fmt rgb24 \
+       -r 10 \  # 10 fps
+       -f gif - | \
+       gifsicle --optimize=3 \
+       --delay=10 \   # 100ms / frame playback rate
+       >| banner.gif

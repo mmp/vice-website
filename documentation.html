@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Vice Documentation</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="vice virtual control client documentation">
+    <meta name="author" content="Matt Pharr">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+</head> 
+
+<body class="docs-page">    
+    <header class="header fixed-top">	    
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/vice/tower-rounded-inset-48x48.png" srcset="assets/vice/tower-rounded-inset-96x96.png 2x" width="48" height="48" alt="logo"><span class="logo-text">Vice<span class="text-alt">:  a cross-platform, open-source, possibly-future VATSIM client</span></span></a></div>    
+                </div><!--//docs-logo-wrapper-->
+	            <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+	                <div class="top-search-box d-none d-lg-flex">
+		                <form class="search-form">
+				            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				        </form>
+	                </div>
+	            </div><!--//docs-top-utilities-->
+            </div><!--//container-->
+        </div><!--//branding-->
+    </header><!--//header-->
+    
+    
+    <div class="docs-wrapper">
+	    <div id="docs-sidebar" class="docs-sidebar">
+		    <div class="top-search-box d-lg-none p-3">
+                <form class="search-form">
+		            <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+		            <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+		        </form>
+            </div>
+		    <nav id="docs-nav" class="docs-nav navbar">
+			    <ul class="section-items list-unstyled nav flex-column pb-3">
+				    <li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-introduction"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#goals">Goals</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#credits">Credits</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#bugs">Reporting Bugs</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-installation"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#install-windows">Windows</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#install-mac">Mac</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-configuration"><span class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Configuraiton</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#sector-position">Sector and Position Files</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#configs">Configs</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#windows">Subwindows</a></li>
+                                    <ul>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#window-organization">Organization</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#radar-scopes">Radar Scopes</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#cli-window">Command-line Interface</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#information">Airport Information</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#flight-plan">Flight Plan</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#reminders">Reminders</a></li>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#notes-view">Notes Viewer</a></li>
+                                    </ul>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#colors">Colors</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#sounds">Sounds</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#notes">Writing and Editing Notes</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-cli"><span class="theme-icon-holder me-2"><i class="fas fa-keyboard"></i></span>Command-Line Interface</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#selecting-aircraft">Selecting Aircraft</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#clearance-delivery">Clearance Delivery</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#managing-information">Managing Information</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#tracks-handoffs">Tracking and Handoffs</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-atc"><span class="theme-icon-holder me-2"><i class="fas fa-plane"></i></span>ATC</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#flightradar24-basic">Flightradar24 (Basic)</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#flightradar24-vrclivetraffic">Flightradar24 (vrclivetraffic)</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#vatsim-captured">Recorded VATSIM Sessions</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-faqs"><span class="theme-icon-holder me-2"><i class="fas fa-lightbulb"></i></span>FAQs</a></li>
+			    </ul>
+
+		    </nav><!--//docs-nav-->
+	    </div><!--//docs-sidebar-->
+	    <div class="docs-content">
+		    <div class="container">
+			    <article class="docs-article" id="section-introduction">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Introduction <span class="docs-time">Last updated: 2022-09-15</span></h1>
+					    <section class="docs-intro">
+					      <p><i>Vice</i> is a new (potential) client for <a href="https://vatsim.net">VATSIM</a>, the virtual online aviation network.
+                                                It is an all-new client implementation, features support for both Windows and Mac computers, and offers a wide range of
+                                                useful features for virtual air traffic control.</p>
+                                              <p>
+                                                At the moment <i>vice</i> is best described as a fairly-complete prototype; although it supports the vast majority of features
+                                                necessary for a control client, it is still missing a few features&mdash;an example is flight strips, which haven't
+                                                yet been implemented.  More significantly, <i>vice</i> is not yet able to connect to the VATSIM network; even if it
+                                                was fully-featured, it cannot be used for ATC until it can connect to VATSIM! (This is a state of affairs that I
+                                                hope will change in the future.) Nevertheless, it's possible to give <i>vice</i> a try, using air traffic from
+                                                <a href="https://www.flightradar24.com">Flightradar24</a> or by capturing the network traffic from a VATSIM session;
+                                                this topic is discussed further in <a href="#traffic">Traffic Sources</a>.
+                                                </p>
+					    </section><!--//docs-intro-->
+				    </header>
+				    <section class="docs-section" id="goals">
+						<h2 class="section-heading">Goals</h2>
+						<p>It's fair to ask, why another VATSIM client? The <i>vice</i> project started out of curiousity with an interest
+                                                  in trying out some new ideas for how a client might work.
+                                                  I asked myself "how hard could it be?", and as always seems to be the case, the answer to that question was "much harder
+                                                  than it seemed at first."
+                                                  Nevertheless, once you get far enough with something like this, your choice is to finish it or throw it away, incomplete.
+                                                  Not wanting to the effort to go to waste, I went with finishing it.
+                                                </p>
+                                                <p>A few further motivations became clear as I made progress.  The first was <b>cross-platform support</b>: the ability to use VATSIM on non-Windows computers (both Macs and Linux) is of interest to many; <i>vice</i> was therefore written to be cross-platfrom from the start.
+                                                  The next was that it be <b>open source</b>: the source code to <i>vice</i> is freely available; my hope is that it will see further improvements thanks to the contributions of additional developers.</p>
+                                                <p>
+                                                  In its current form, </i>vice</i> does not strive to replicate the experience of using a particular real-world ATC system.
+Rather, its goal is to be general-purpose and to be suited to VATSIM's unique top-down control structure, where a controller may be simultaneously responsible for a range of positions.
+An interesting future project would be to add modes that better replicate specific real-world systems; much of the core of <i>vice</i>'s implementation could be reused for such an effort, making it easier to develop such support. 
+                                                  </p>
+                      
+					</section><!--//section-->
+					
+					<section class="docs-section" id="credits">
+						<h2 class="section-heading">Credits</h2>
+						<p>
+<i>vice</i> uses a number of open-source libraries in its implementation; see the <a href="https://github.com/mmp/vatce/blob/master/CREDITS.txt">credits file</a> in the source code distribution for details.
+Thanks also to the font and audio designers whose freely-available work is used in <i>vice</i>; they, too, are listed in the credits file.
+Finally, thanks to our AI overlord <a href="https://openai.com/dall-e-2/">DALL-E 2</a>, who created <i>vice</i>'s icon given the prompt "air traffic control tower retro art deco".
+</p>
+
+<p>
+  <i>vice</i> is heavily influenced by Ross Carlson's <a href="https://vrc.rosscarlson.dev">VRC</a> client for VATSIM; many features from VRC have been reimplemented in <i>vice</i>.
+  Thanks to Ross for many happy hours with VRC as well as the inspiration for those features.
+</p>
+						
+					</section><!--//section-->
+
+					<section class="docs-section" id="bugs">
+						<h2 class="section-heading">Reporting Bugs</h2>
+                                                <p>As a new client, <i>vice</i> will inevitably have bugs. If you have encountered one, apologies!
+                                                  It would be of great help if you would send in a report if <i>vice</i> crashes when you're using it,
+                                                  reports an error that it cannot recover from, or even if it is doing something that doesn't seem quite
+                                                  right.
+                                                </p>
+                                                <p>Bugs can be reported via email at <i>bugs@vice.pharr.org</i>. In your bug report, please include:
+                                                  <ol>
+                                                    <li>A description of what you were doing and how <i>vice</i> responded. If what it's drawing on the
+                                                      screen is garbled or otherwise incorrect, including a screenshot would be helpful, if you're able.</li>
+                                                    <li><i>Vice</i>'s log files from your controlling session; after you exit <i>Vice</i>, it will save a log
+                                                      file for your session. On Windows, it's in your <code>AppData</code> folder in <code>Roaming/Vice/vice.log</code> and on Mac, it's in <code>Library/Application Support/Vice/vice.log</code>. Attaching that file to a bug report will greatly help with fixing the issue. Note that this file is overwritten each time you quit <i>vice</i>, so be sure not restart <i>vice</i> before attaching it to a bug report and sending the email. </li>
+                                                  </ol>
+                                                  If you happen to have a github account, bugs can also be reported in the <i>vice</i> <a href="https://github.com/mmp/vice/issues">issue tracker</a> there, but there is no need to make a github account to report a bug if you don't already have one.
+                                                </p>
+                                                <p>Also, if you find any errors or omissions in this documentation, please email <i>bugs@vice.pharr.org</i>.
+                                                  (Similarly, if you have a github account, there's the <a href="https://github.com/mmp/vice-website">issue tracker for the website contents</a>.
+                                                  </p>
+					</section><!--//section-->
+					
+			    </article>
+			    
+			    <article class="docs-article" id="section-installation">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Installation</h1>
+					    <section class="docs-intro">
+					      <p><i>Vice</i> provides installers for both Windows and Mac that make installation and upgrades straightforward.
+                                                </p>
+					    </section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="install-windows">
+						<h2 class="section-heading">Windows</h2>
+						<p>To install <i>vice</i> on Windows, download and launch the installer below.
+                                                  After installation, you can find the <i>vice</i> application in the <i>Program Files (x86)/Vice</i> folder.
+(Apologies that the installer does not yet offer the option of adding <i>vice</i> to your program menu or making a desktop shortcut; that will
+be remedied in a future relase.)
+                                                </p>
+
+                                    <a href="installers/Vice-v0.1.0 Installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.1.0 for Windows</a>
+                                    
+					</section><!--//section-->
+					
+					<section class="docs-section" id="install-mac">
+						<h2 class="section-heading">Mac</h2>
+						<p>On a Macintosh computer, download the <i>dmg</i> file below; it contains a universal binary that runs
+                                                  on both Intel (x86) and Apple (M1, ...) CPUs. After opening it, drag <i>Vice.app</i> to your <i>Applications</i>
+                                                  folder.</p>
+
+                                    <a href="installers/Vice-v0.1.0 Installer.dmg" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.1.0 for Mac</a>
+
+					</section><!--//section-->
+					
+			    </article><!--//docs-article-->
+			    
+			    
+			    <article class="docs-article" id="section-configuration">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Configuration</h1>
+					    <section class="docs-intro">
+						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="sector-position">
+						<h2 class="section-heading">Sector and Position Files</h2>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+					</section><!--//section-->
+
+				     <section class="docs-section" id="configs">
+						<h2 class="section-heading">Configs</h2>
+						<p>One of the key concepts in <i>vice</i> is the <b>Config</b>: a config...
+                                                  Typically, 
+                                                </p>
+					</section><!--//section-->
+					
+				     <section class="docs-section" id="windows">
+						<h2 class="section-heading">Subwindows</h2>
+						<p>Few to no requirements.
+                                                  If you're only doing clearance delivery, for example, you don't need a radar scope.
+                                                  Or if you're watching live traffic for entertainment, you might not have a command-line interface subwindow.
+                                                  But in general, will have at least one radar scope, the command-line interface, a flight plan subwindow and an airport information subwindow.
+                                                </p>
+
+                                                <p>how to configure them...</p>
+
+                                     </section> <!--windows-->
+					
+				                <section class="docs-section" id="window-organization">
+						<h3 class="section-heading">Organization</h3>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+                                                </section>
+
+				                <section class="docs-section" id="radar-scopes">
+						<h3 class="section-heading">Radar Scopes</h3>
+						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+
+                                                <p>Click aircraft to select it. This affects what's displayed in the <a href="#flight-plan">flight plan subwindow</a> as well as the currently selected aircraft in the <a href="#section-cli">command-line interface</a>.</p>
+
+                                                </section>
+
+                                                <section class="docs-section" id="miles-in-trail-list">
+						<h4 class="section-heading">The Miles in Trail List</h4>
+                                                </section>
+
+				                <section class="docs-section" id="cli-window">
+						<h3 class="section-heading">Command-Line Interface</h3>
+
+                                                <p>An instance of the command-line interface subwindow must be part of a Config for the user to be able to enter
+                                                  keyboard commands.
+                                                  It has no settings beyond the selection of a font and font size to use for it.
+                                                </p>
+                                                
+                                                <div class="content">
+                                                  <div class="callout-block callout-block-info">
+                                                    <h4 class="callout-title">
+	                                              <span class="callout-icon-holder me-1">
+		                                        <i class="fas fa-info-circle"></i>
+		                                      </span><!--//icon-holder-->
+	                                            </h4>
+                                                    <p>This subwindow is unusual in that only one instance of it can be created in a config; it doesn't make sense to have more than one available, since both would receive the same input from the user.</p>
+                                                  </div><!--//callout-block-->
+                                                  </div><!--//content-->
+
+                                                </section>
+
+				                <section class="docs-section" id="information">
+						<h3 class="section-heading">Airport Information</h3>
+						<p>The Airport Information subwindow can be used to display a variety of information about one or more airports.
+                                                  Which airports are covered by an Airport Information subwindow can be entered in its settings window.
+                                                  Each of the following can be included in the information displayed, again determined by the subwindow's settings.
+                                                </p>
+                                                <p>The current time and the weather for the selected airports. (Here, only KPHL is selected.)
+                                                  The altimeter and winds are highlighted, for ease of finding them quickly.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-weather.png" srcset="assets/vice/airport-weather-2x.png 2x" width="515" height="66">
+                                                  </div>
+                                                </p>
+                                                <p>Uncleared aircraft on the ground at the selected airports. Basic information about the flight plan is shown in the display, including the aircraft's filed route.
+                                                  In this way, when a pilot first connects, it's easy to quickly see if their flight plan has problems.
+                                                  ("Uncleared" is currently determined using the heuristic that aircraft without assigned squawk codes are assumed to be uncleared.)
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-uncleared.png" srcset="assets/vice/airport-uncleared-2x.png 2x" width="515" height="48">
+                                                  </div>
+                                                </p>
+                                                <p>Aircraft that have been cleared but have not yet departed are listed under "Departures".
+                                                  The information included is tailored to the needs of ground and tower controllers, including aircraft type
+                                                  (for wake turbulence purposes), the cleared altitude, and the start of their route.
+                                                  Here the second aircraft has an indicator that shows that it is not squawking mode Charlie.
+                                                  Aircraft that are squawking a code other than their assigned code are also flagged here.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-departures.png" srcset="assets/vice/airport-departures-2x.png 2x" width="515" height="48">
+                                                  </div>
+                                                </p>
+                                                <p>Aircraft that have left the airport and are in the air can be shown under "Departed".
+                                                  Here, the cleared altitude is shown first and the aircraft's current altitude is shown afterward.
+                                                  The scratchpad is shown between the aircraft type and the cleared altitude.
+                                                  In this case, both aircraft have empty scratchpads.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-departed.png" srcset="assets/vice/airport-departed-2x.png 2x" width="515" height="43">
+                                                  </div>
+                                                </p>
+                                                <p>Next, arrivals can be shown. The format parallels that of departed aircraft, with the scratchpad after the aircraft type.
+                                                  Next is the aircraft's temporary altitude, if set, followed by its altitude.
+                                                  Its distance to the airport is shown last.
+                                                  Note that arrivals are not sorted strictly by their distance to the airport; an aircraft 10,000 feet directly above the field may be assumed to be arriving later than one 6nm away at 2,000 feet.
+                                                  The sorting of arrivals attempts to display them in the order in which they will reach the airport, given these considerations. 
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-arrivals.png" srcset="assets/vice/airport-arrivals-2x.png 2x" width="515" height="44">
+                                                  </div>
+                                                </p>
+                                                <p>Finally, the active controllers are listed. In addition to the positions and radio frequencies, the sector id is displayed for each position if it is available.
+                                                  Furthermore, the character used to identify aircraft tracked by the controller on radar scopes is shown, again if it is known.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/airport-controllers.png" srcset="assets/vice/airport-controllers-2x.png 2x" width="515" height="45">
+                                                  </div>
+                                                </p>
+                                                </section>
+
+				                <section class="docs-section" id="flight-plan">
+						<h3 class="section-heading">Flight Plan</h3>
+						<p>There's not much to say about the flight plan window, though it's an invaluable tool; it shows the flight plan for whichever aircraft is currently selected.
+                                                  (See further <a href="#selecting-aircraft">discussion of selecting aircraft</a> for more information on aircraft selection.)
+<div class="text-center">
+<img src="assets/vice/flightplan.png" srcset="assets/vice/flightplan-2x.png 2x" width="468" height="55">
+</div>
+</p>
+                                                </section>
+
+				                <section class="docs-section" id="reminders">
+						<h3 class="section-heading">Reminders</h3>
+
+                                                <p>The Reminders subwindow shows todo items and timers that have been added via the <i>vice</i> command-line interface;
+                                                  see <a href="#managing-information">that documentation</a> for information about the relevant commands.
+                                                  For timers, the time until the timer expires is shown.
+                                                  Both timers and todo items can be removed from the Reminders subwindow just by clicking on them.
+<div class="text-center">
+<img src="assets/vice/reminders" srcset="assets/vice/reminders-2x.gif 2x" width="352" height="105" class="img-fluid">
+</div>
+
+                                                </p>
+                                                </section>
+
+				                <section class="docs-section" id="notes-view">
+						<h3 class="section-heading">Notes Viewer</h3>
+						<p>The notes viewer subwindow can be used to display text notes written using the <a href="#notes">Notes Editor</a>.
+                                                  One or more notes can be selected in the Notes Viewer settings and then each note can be individually selected.
+                                                  Notes can be reordered by dragging entries in the list of notes.
+                                                  In the example below, the Notes Viewer is displaying the missed approach headings and altitudes for the KJFK runways as well as the takeoff headings for runway 13 in the non-13L ILS configuration.
+                                                  From its configuration dialog box on the right, we can see that the headings for runway 13 with 13L ILS are at hand but are not displayed; in this way it's possible to have a number of possibly-relevant quickly available but not necessarily dispayed.
+<div class="text-center">
+<img src="assets/vice/notes-view.png" srcset="assets/vice/notes-view-2x.png 2x" width="688" height="319">
+</div>
+                                                </p>
+                                                In addition to displaying multiple notes in a single Notes Viewer, it can also be useful to have multiple Notes Viewer subwindows, each displaying different information.
+                                                </section>
+
+					<section class="docs-section" id="colors">
+						<h2 class="section-heading">Colors</h2>
+						<p>There are currently two color schemes&mdash;dark and light&mdash;built-in to <i>vice</i>. More will be available in the future.
+                                                  To switch between them, choose the "Settings/General..." menu item and then select the desired color scheme.
+                                                </p>
+                                                <div class="text-center">
+                                                  <img src="assets/vice/color-schemes.gif" srcset="assets/vice/color-schemes-2x.gif 2x" width="800" height="483" class="img-fluid">
+                                                </div>
+                                                <br>
+                                                <p>It is also easy to edit the colors in the selected color scheme; choose the "Settings/Colors..." menu item and the color editor will appear, showing all of the colors in the current color scheme.
+                                                  As you edit colors in the color editor, the changes are reflected immediately in the user interface; this makes it easy to dial in the colors as you like them.
+</p>
+                                                <div class="text-center">
+                                                  <img src="assets/vice/color-editor.gif" srcset="assets/vice/color-editor-2x.gif 2x" width="1180" height="594" class="img-fluid">
+                                                  </div>
+
+					</section><!--//section-->
+
+					<section class="docs-section" id="sounds">
+						<h2 class="section-heading">Sounds</h2>
+						<p>It is possible to configure <i>vice</i> to play sounds when various notable things happen. Choose the "Settings/Sounds..." menu item and the following dialog box will appear:
+                                                </p>
+                                                <div class="text-center">
+                                                  <p><img src="assets/vice/sounds.png" srcset="assets/vice/sounds-2x.png 2x" width="407" height="516" class="img-fluid"></p>
+                                                </div>
+                                                <br>
+                                                <p>Sound effects can be selected for all of the indicated events and also be enabled and disabled globally.
+                                                  Nearly twenty sounds are currently available.
+                                                  (Note that it is not currently possible to provide your own sound files.)
+                                                  </p>
+					</section><!--//section-->
+
+					<section class="docs-section" id="notes">
+						<h2 class="section-heading">Writing and Editing Notes</h2>
+
+                                                <p>Text notes for the <a href="#notes-view">Notes Viewer subwindow</a> can be entered by choosing the "Settings/Notes..." menu item.
+                                                  Doing so brings up a small notes editor that allows adding new notes and editing or deleting existing notes.
+<div class="text-center">
+<img src="assets/vice/notes-editor.gif" srcset="assets/vice/notes-editor-2x.gif 2x" width="311" height="264" class="img-fluid">
+</div>
+</p>
+					</section><!--//section-->
+
+			    </article><!--//docs-article-->
+			    
+			    <article class="docs-article" id="section-cli">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">Command-Line Interface</h1>
+					    <section class="docs-intro">
+
+                                                <div class="callout-block callout-block-info">
+                                                  <div class="content">
+                                                    <h4 class="callout-title">
+	                                              <span class="callout-icon-holder me-1">
+		                                        <i class="fas fa-bullhorn"></i>
+		                                      </span><!--//icon-holder-->
+	                                              Note
+	                                            </h4>
+                                                    <p><i>Vice</i> does not yet support alias files or binding function keys to commands;
+                                                      that functionality will come in a future release.
+                                                      Therefore, it may seem that using the command-line interface will be unweildy and will require much typing.
+                                                      User-configurable aliases and function key bindings will greatly reduce the typing load,
+                                                      making it easy to use familiar bindings like selecting an aircraft and hitting F3 to initiate a track.
+                                                    </p>
+                                                  </div><!--//content-->
+                                                </div><!--//callout-block-->
+
+					      <p>Most of a controller's actions controlling aircraft in <i>vice</i> are done via typing commands;
+                                                the mouse is usually only used for interacting with the scope and selecting aircraft.
+                                                A <i>vice</i> Config will almost always include a Command-line Interface (CLI) subwindow, which allows entering commands
+                                                and seeing their results.
+                                                (Recall the earlier discussion of <a href="#cli-window">Command-line Interface subwindows</a>.)
+                                              </p>
+
+                                              <p><i>vice</i> provides a number of facilities that make it possible to work efficiently with the keyboard.
+                                                For starters, the usual text editing keys are available&mdash;the left and right arrows move the cursor,
+                                                the backspace and delete keys delete text, and the home and end keys jump to the start of the line and the end of the line, respectively.
+                                                The up and down arrow keys go through the command history; if a recent command should be reissued, or should be reissued with a small change, it may be more efficient to find it in the history and to edit it rather than typing it in from scratch.
+                                                </p>
+
+                                              <p>As you read the documentation below and explore <i>vice</i>'s command-line interface, remember that the "help" command is always available.
+                                                Running "help" by itself lists all of the available commands.
+                                                Running "help" with the name of a command provides a reminder about what that command does and how it is used.
+                                                </p>
+                                              <div class="text-center">
+                                                <img src="assets/vice/cli-help-handoff.gif" srcset="assets/vice/cli-help-handoff-2x.gif 2x" width="715" height="94" class="img-fluid">
+                                              </div>
+
+					    </section><!--//docs-intro-->
+				    </header>
+
+				     <section class="docs-section" id="selecting-aircraft">
+				       <h2 class="section-heading">Selecting Aircraft</h2>
+
+                                              <p>A key concept for working with the CLI is the <b>currently-selected aircraft</b>.
+                                                Clicking on an aircraft's track or datablock in a radar scope selects it, and entering an aircraft's callsign in the CLI causes it to become the currently-selected aircraft.
+                                                The currently-selected aircraft is indicated with a distinct color for its datablock in radar scopes and by its callsign being shown in the CLI prompt. For example, AAL1575 is the selected aircraft below:
+<div class="text-center">
+<img src="assets/vice/selected-aircraft.png" srcset="assets/vice/selected-aircraft-2x.png 2x" width="713" height="53">
+</div>
+                                              </p>
+                                              <p>
+                                                For all of the commands that operate on aircraft, the currently-selected aircraft is used by default, unless another aircraft is specified explicitly.
+                                              </p>
+
+                                              <p>The currently-selected aircraft can be changed simply by selecting another aircraft.
+                                                Alternatively, the currently-selected aircraft can be cleared either by clicking on a radar scope away from any aircraft or by pressing the "escape" key.
+                                              </p>
+
+                                       <p>Another way to specify aircraft for commands is to start entering a command and then click on an aircraft in a radar scope.
+                                         That aircraft's callsign will be automatically added to the command being entered.
+                                         </p>
+
+                                              <p>In order to make it easier to select aircraft using the command-line, <i>vice</i> allows entering a partial callsign.
+                                                If the given callsign is unambiguous, then the corresponding aircraft is selected, but if multiple aircraft match, an error is issued.
+                                                In the example below, the "SWA" callsign alone is insufficient, but typing "SWA2" and hitting enter is enough to select SWA2783.
+                                                In this case, the aircraft might alternatively have been seleced by entering a partial callsign like "783".
+<div class="text-center">
+<img src="assets/vice/select-aircraft-completion.gif" srcset="assets/vice/select-aircraft-completion-2x.gif 2x" width="715" height="94" class="img-fluid">
+</div>
+Note also that it is not necessarily to capitalize the letters in callsigns.
+                                              </p>
+
+                                              <p>If you have entered a partial callsign, pressing the "tab" key will cause <i>vice</i> to attempt to replace your text with the full callsign.
+                                                However, if multiple callsigns match, it will print a message below the text entry field, showing the matches.
+                                                Seeing the options in that way makes it easy to see how to make the callsign unambiguous.
+                                                In the sample below, hitting tab after typing "AAL1" is insufficient to select the desired aircraft but after seeing the error message, we see that adding a "6" to make "AAL16" and then typing tab works to select AAL1610. 
+<div class="text-center">
+<img src="assets/vice/select-aircraft-tab-completion.gif" srcset="assets/vice/select-aircraft-tab-completion-2x.gif 2x" width="715" height="94" class="img-fluid">
+</div>
+</p>
+                                       </section>
+
+				     <section class="docs-section" id="clearance-delivery">
+				       <h2 class="section-heading">Clearance Delivery</h2>
+
+                                                <div class="callout-block callout-block-info">
+                                                  <div class="content">
+                                                    <h4 class="callout-title">
+	                                              <span class="callout-icon-holder me-1">
+		                                        <i class="fas fa-bullhorn"></i>
+		                                      </span><!--//icon-holder-->
+	                                              Reminder
+	                                            </h4>
+                                                    <p>Remember that <i>vice</i> does not connect to VATSIM. Thus, although doing things like changing the cleared altitude of an aircraft
+                                                      causes the reported altitude clearance in the flight plan window to change, it has no actual effect.</p>
+                                                  </div><!--//content-->
+                                                </div><!--//callout-block-->
+
+                                                <p>A vareity of commands are available for clearance delivery when using <i>vice</i>'s command-line interface.
+                                                  Some change individual aspects of an aircraft's flight plan and others provide information that is useful
+                                                  when clearing an aircraft.
+                                                  It is a good idea to have a <a href="#flight-plan">Flight Plan subwindow</a> visible as part of your Config so that you can easily check an aircraft's current flight plan and see the effect of changes you make to it as you are clearing it.
+                                                </p>
+                                                
+                                                <p>The following commands modify components of a flight plan:
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                      <th>Command</th>
+                                                      <th>Function</th>
+                                                      <th>Example</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td><code>actype</code>&nbsp;<i>callsign</i>&nbsp;<i>type</i></td>
+                                                        <td>Sets the aircraft type, including its equipment suffix.</td>
+                                                        <td><code>actype&nbsp;ual955&nbsp;B772/G</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>alt</code>&nbsp;<i>callsign</i>&nbsp;<i>altitude</i></td>
+                                                        <td>Sets the aircraft's cruising altitude.</td>
+                                                        <td><code>alt&nbsp;BAW60T&nbsp;31000</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>arr</code>&nbsp;<i>callsign</i>&nbsp;<i>airport</i></td>
+                                                        <td>Sets an aircraft's arrival airport.</td>
+                                                        <td><code>arr&nbsp;ezy68WZ&nbsp;lgw</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>dep</code>&nbsp;<i>callsign</i>&nbsp;<i>airport</i></td>
+                                                        <td>Sets an aircraft's departure airport suffix.</td>
+                                                        <td><code>actype&nbsp;EZY68WZ&nbsp;CFU</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>equip</code>&nbsp;<i>callsign</i>&nbsp;<i>suffix</i></td>
+                                                        <td>Sets aircraft's equipment suffix.</td>
+                                                        <td><code>equip&nbsp;TRA9008&nbsp;G</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>ifr</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Marks the aircraft as an IFR flight.</td>
+                                                        <td><code>ifr&nbsp;klm1602</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>vfr</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Marks the aircraft as a VFR flight.</td>
+                                                        <td><code>vfr&nbsp;n205bw</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>scratchpad</code>&nbsp;<i>callsign</i>&nbsp;<i>value</i></td>
+                                                        <td>Sets the aircraft's scratchpad. If no entry is specified, the scratchpad is cleared.</td>
+                                                        <td><code>scratchpad&nbsp;AFR17LF&nbsp;I9R</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>squawk</code>&nbsp;<i>callsign</i>&nbsp;<i>code</i></td>
+                                                        <td>Sets the aircraft's squawk code. If the aircraft is IFR and no value is specified, then a squawk code is automatically assigned.</td>
+                                                        <td><code>squawk&nbsp;AAL622</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>route</code>&nbsp;<i>callsign</i>&nbsp;<i>route</i></td>
+                                                        <td>Specifies the aircraft's entire route.</td>
+                                                        <td><code>route&nbsp;JIA5620&nbsp;+JFK5&nbsp;MERIT&nbsp;ROBUC3</code></td>
+                                                      </tr>
+                                                    </tbody>
+                                                    </table>
+                                                </p>
+                                                <p>
+                                                  All of these commands use the currently-selected aircraft, if there is one.
+                                                  For example, if UAL955 is selected, then its type can be set simply by typing <code>actype B772/G</code>;
+                                                  there is no need to specify the callsign.
+                                                </p>
+                                                <p>
+                                                  The altitude specified with the <code>alt</code> command may either be a full altitude, or may be a three digit altitude, in which case it is interpreted as being hundreds of feet.  Thus, either "31000" and "310" could be provided to specify FL310.
+                                                  </p>
+
+                                                <p>If only a minor modification to the route is necessary, then it's undesirable to  have to reenter all of it using the <code>route</code> command.
+                                                  For such cases, the <code>editroute</code> command is available.
+                                                  It loads the specified aircraft's route into the command-line input, ready to be directly edited.
+                                                  After you correct it, hitting enter causes the <code>route</code> command to be executed.
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                      <th>Command</th>
+                                                      <th>Function</th>
+                                                      <th>Example</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td><code>editroute</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Prepopulate the command-line entry with a <code>route</code> command for modifying the aircraft's currently-filed route.</td>
+                                                        <td><code>editroute&nbsp;UAL955</code></td>
+                                                      </tr>
+                                                    </tbody>
+                                                    </table>
+                                                  An example of its use is below. After <code>editroute aal284</code> is entered, the <code>route</code> command is automatically generated and the cursor is positioned at the start of the current route, making it easy to make changes.
+                                                  </p>
+<div class="text-center">
+<img src="assets/vice/editroute.gif" srcset="assets/vice/editroute-2x.gif 2x" width="715" height="91" class="img-fluid">
+</div>
+<br>
+                                                <p><i>vice</i> has its own copy of the US FAA's preferred route database (PRD).
+                                                  The <code>faaprd</code> command can be used to look up the routes in the database for
+                                                  an aircraft's departure and arrival airport:
+                                                  </p>
+<div class="text-center">
+<img src="assets/vice/faaprd.gif" srcset="assets/vice/faaprd-2x.gif 2x" width="715" height="91" class="img-fluid">
+</div>
+<br>
+                                                <p>
+                                                  (For <a href="https://nyartcc.org">ZNY controllers</a>, there is a <code>nyprd</code> command that looks up routes in the ZNY PRD.)
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                      <th>Command</th>
+                                                      <th>Function</th>
+                                                      <th>Example</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td><code>faaprd</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Print any routes for the aircraft from the FAA preferred route database.</td>
+                                                        <td><code>faaprd&nbsp;UAL955</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>nyprd</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Print any routes for the aircraft from the ZNY preferred route database.</td>
+                                                        <td><code>nyprd&nbsp;DDX2</code></td>
+                                                      </tr>
+                                                    </tbody>
+                                                    </table>
+                                                  </p>
+
+                                                <div class="callout-block callout-block-info">
+                                                  <div class="content">
+                                                    <h4 class="callout-title">
+	                                              <span class="callout-icon-holder me-1">
+		                                        <i class="fas fa-bullhorn"></i>
+		                                      </span><!--//icon-holder-->
+	                                              Note
+	                                            </h4>
+                                                    <p>The databases currently available in <i>vice</i> are addmittedly US-centric (though it does include a database of international airports).
+                                                      We'd be happy to extend it to have a wider range of data sources, given information about where to find them!
+                                                    </p>
+                                                  </div><!--//content-->
+                                                </div><!--//callout-block-->
+
+
+					</section><!--//section-->
+				     <section class="docs-section" id="managing-information">
+				       <h2 class="section-heading">Managing Information</h2>
+
+                                       <p>
+                                         One of the goals of <i>vice</i> is to make it easy to access the additional information that is useful
+                                         when controlling.
+                                         While experienced controllers may have little need for these functions, they are intended to be helpful for
+                                         new controllers as they are learning how to contraol aircraft in VATSIM.
+                                         <table class="table table-bordered">
+                                           <thead>
+                                             <tr>
+                                               <th>Command</th>
+                                               <th>Function</th>
+                                               <th>Example</th>
+                                             </tr>
+                                           </thead>
+                                           <tbody>
+                                             <tr>
+                                               <td><code>find</code>&nbsp;<i>item</i></td>
+                                               <td>Highlight the specified item in any radar scopes where it is visible. The item
+                                               may be a VOR, a NDB, a fix, an airport, or a callsign.</td>
+                                               <td><code>find&nbsp;PTW</code></td>
+                                             </tr>
+                                             <tr>
+                                               <td><code>info</code>&nbsp;<i>item</i></td>
+                                               <td>Print information about the item.  If a callsign is specified, the flightplan and further
+                                                 information about the aircraft is printed. For VORs and NDBs, the location and associated name
+                                                 are printed. If the alphabetical part of a callsign is entered (e.g., "BAW"), the associated
+                                               telephony is printed (e.g., "speedbird").</td>
+                                               <td><code>info&nbsp;BAW</code></td>
+                                             </tr>
+                                             <tr>
+                                               <td><code>mit</code>&nbsp;<i>callsign...</i></td>
+                                               <td>Adds the specified aircraft to the end of the <a href="#miles-in-trail-list">miles in trail list</a>. If no aircraft are specified, the miles in trail list is cleareed.</td>
+                                               <td><code>mit&nbsp;JBU2212&nbsp;UPS144&nbsp;AAL1402</code></td>
+                                             </tr>
+                                             <tr>
+                                               <td><code>timer</code>&nbsp;<i>minutes</i>&nbsp;<i>note...</i></td>
+                                               <td>Adds a timer to the <a href="#reminders">Reminders subwindow</a>.
+                                                 If a sound has been assigned to timers in the Sounds dialog box, that sound will be played when the timer expires.</td>
+                                               <td><code>timer&nbsp;5&nbsp;release&nbsp;for&nbsp;N23B&nbsp;expires</code></td>
+                                             </tr>
+                                             <tr>
+                                               <td><code>todo</code>&nbsp;<i>note...</i></td>
+                                               <td>Adds an item to the todo list that is shown in the <a href="#reminders">Reminders subwindow</a>.</td>
+                                               <td><code>todo&nbsp;dal2204&nbsp;needs&nbsp;clearance</code></td>
+                                             </tr>
+                                           </tbody>
+                                         </table>
+                                       </p>
+                                       <p>
+                                         By default, the <code>find</code> command highlights the item with a red circle on the radar scope, though the color
+                                         used can be changed using the color editor. Here is an example of running <code>find mxe</code> to locate a VOR near KPHL.
+                                       </p>
+                                       <div class="text-center">
+<img src="assets/vice/cli-find.gif" srcset="assets/vice/cli-find-2x.gif 2x" width="329" height="192" class="img-fluid">
+                                       </div>
+                                       <br>
+                                       <p>Here is an example of the use of the <code>info</code> command to look up information about an aircraft, a VOR, and an airport.</p>
+<div class="text-center">
+<img src="assets/vice/cli-info.gif" srcset="assets/vice/cli-info-2x.gif 2x" width="715" height="147" class="img-fluid">
+</div>                                         
+
+					</section><!--//section-->
+
+				     <section class="docs-section" id="tracks-handoffs">
+						<h2 class="section-heading">Tracking and Handoffs</h2>
+
+                                                <p>Another group of commands takes care of actions that are performed for aircraft that are in flight.
+                                                  <table class="table table-bordered">
+                                                    <thead>
+                                                      <tr>
+                                                      <th>Command</th>
+                                                      <th>Function</th>
+                                                      <th>Example</th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td><code>accept</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Accept the handoff of the aircraft.</td>
+                                                        <td><code>accept&nbsp;BAW1</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>drop</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Drops the track on the specified aircraft.</td>
+                                                        <td><code>drop&nbsp;FDX265</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>handoff</code>&nbsp;<i>callsign</i>&nbsp;<i>controller</i></td>
+                                                        <td>Initiates a handoff of the aircraft to the specified controller.</td>
+                                                        <td><code>handoff&nbsp;UPS22&nbsp;JFK_APP</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>pointout</code>&nbsp;<i>callsign</i>&nbsp;<i>controller</i></td>
+                                                        <td>Points the aircraft out to the specified controller.</td>
+                                                        <td><code>pointout&nbsp;JIA2703&nbsp;6e</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>reject</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Rejects the handoff of the aircraft from another controller.</td>
+                                                        <td><code>reject&nbsp;DAL144</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>tempalt</code>&nbsp;<i>callsign</i>&nbsp;<i>altitude</i></td>
+                                                        <td>Specifies a temporary altitude for the aircraft.</td>
+                                                        <td><code>tempalt&nbsp;RYR1402&nbsp;80</code></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td><code>track</code>&nbsp;<i>callsign</i></td>
+                                                        <td>Initiates a track for the specified aircraft.</td>
+                                                        <td><code>track&nbsp;EXEC55</code></td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                  As with earlier commands, if there is a currently-selected aircraft, then the callsign need not be specified.
+                                                  Further, as before, aircraft callsigns may be abbreviated when the abbreviation is unambiguous.
+                                                  Finally, as with the <code>alt</code> command, the altitude specified with <code>tempalt</code> may either be in feet or in hundreds of feet.
+                                                </p>
+                                                <p>
+                                                  For the commands that take a controller, the controller may either be specified via a callsign (e.g., <code>JFK_APP</code>), or using the identifier for the position (e.g., <code>6e</code>).
+                                                  </p>
+                                                <p>
+                                                  Finally, a number of the commands from the <a href="#clearance-delivery">Clearance Delivery</a> section are useful for
+                                                  enroute controlling&mdash;<code>squawk</code> and <code>scratchpad</code> especially, though the others are also useful for pop-up clearances.
+                                                  </p>
+
+					</section><!--//section-->
+
+                            </article>
+
+			    <article class="docs-article" id="section-atc">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">ATC</h1>
+					    <section class="docs-intro">
+						    <p>Although <i>vice</i> cannot currently connect to VATSIM, it is still possible to view aircraft traffic with it, which makes it possible to explore <i>vice</i>'s features and capabilities.
+                                                      There are currently three options for viewing traffic, with varying levels of completeness and ease of use.  To connect to a source of traffic, select the "Connect..." option in the "Connection" menu to bring up the "New Connection" dialog box.</p>
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/menu-connect.png" srcset="assets/vice/menu-connect-2x.png 2x" width="285" height="84" class="img-fluid">
+                                                      </div>
+						</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="flightradar24-basic">
+						<h2 class="section-heading">Flightradar24 (Basic)</h2>
+                                                <p>Selecting "Flight Radar" establishes a direct connect with <a href="https://flightradar24.com">Flightradar</a>; <i>vice</i> will display traffic in a 50nm radius from the center of the radar scope.
+                                                  Note that only limited information is available for each aircraft&mdash;just the callsign, altitude, and ground speed.
+                                                  No further information (e.g., the squawk code, departure and arrival airports, or flight plan) is available.
+                                                  The main advantage of this option is that it is a simple way to fill the scopes with realistic air traffic.
+                                                </p>
+                                                <div class="text-center">
+                                                  <img src="assets/vice/connect-flightradar.png" srcset="assets/vice/connect-flightradar-2x.png 2x" width="308" height="89" class="img-fluid">
+                                                </div>
+				     </section><!--//section-->
+
+				     <section class="docs-section" id="flightradar24-vrclivetraffic">
+						<h2 class="section-heading">Flightradar24 (vrclivetraffic)</h2>
+                                                <p>A better option for viewing live traffic is to use <a href="https://github.com/Sequal32/vrclivetraffic">vrclivetraffic</a>, which draws from multiple data sources to provide more complete information for each aircraft.
+                                                  To use <i>vrclivetraffic</i> with <i>vice</i>, install <i>vrclivetraffic</i> as usual, edit its <code>config.json</code> as necessary to inform it which airport you are interested in, and launch it.
+                                                  Once <i>vrclivetraffic</i> is running, select the "VATSIM (not actually)" option in the "New connection" dialog box:                                             
+                                                </p>
+                                                <div class="text-center">
+                                                  <img src="assets/vice/connect-vrclivetraffic.png" srcset="assets/vice/connect-vrclivetraffic-2x.png 2x" width="328" height="114" class="img-fluid">
+                                                </div>
+                                                <br>
+                                                <p>
+                                                  Leave the address field unchanged and click "Ok". After a few seconds, traffic should start to appear in the radar scope. 
+                                                  </p>
+				     </section><!--//section-->
+				     <section class="docs-section" id="vatsim-captured">
+						<h2 class="section-heading">Recorded VATSIM Sessions</h2>
+                                                <p>The most complete option is to record the network traffic a VATSIM session when using another client (e.g., VRC).
+                                                  That recorded traffic can then be replayed in <i>vice</i>,  which makes it possible to see how that session would have appeared in <i>vice</i>.
+                                                  Do the following to prepare to record VATSIM sessions for <i>vice</i>:
+                                                </p>
+                                                <ol>
+                                                  <li> Install the <i>vsniff</i> utility from its <a href="https://github.com/mmp/vsniff/releases/latest">releases page</a>; binaries for both Windows and OSX are available.</li>
+                                                  <li> If you're using VRC, open or create the file <code>myservers.txt</code> in <code>Documents/VRC</code>. Add a line to the file containing: <code>127.0.0.1 vsniff</code>.</li>
+                                                  <li> For Euroscope, open or create the file <code>myipaddr.txt</code> in <code>Documents/Euroscope</code>. Add a line to the file containing <code>127.0.0.1 vsniff</code>.</li>
+                                                </ol>
+                                                <p>Then, each time you want to record a controlling session, do the following:</p>
+                                                <ol>
+                                                  <li> Launch <i>vsniff</i>.</li>
+                                                  <li> Choose "vsniff" as your server when you establish a connection in VRC/Euroscope.</li>
+                                                  <li> Control as usual.  As your session progresses, a file named along the lines of <code>2022-09-15@121005.vess</code> will be written storing the network traffic. (The filename encodes the date and time at which the session began.)
+</li>
+                                                  <p>To replay a recorded session file in <i>vice</i>, choose the "VATSIM Replay" connection type. You will be prompted to locate a VATSIM session file.  After doing so, you will be offered the opportunity to speed up or slow down the rate at which the session is replayed and to select an offset into the session in seconds.
+                                                    </p>
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/connect-vatsim-replay.png" srcset="assets/vice/connect-vatsim-replay-2x.png 2x" width="497" height="166" class="img-fluid">
+                                                  </div>
+                                                  <br>
+                                                  <p>The experience with recorded VATSIM sessions is fairly complete, including full flight plans, the tracking of aircraft by controllers, and the controller chat from the session.
+                                                    </p>
+				     </section><!--//section-->
+					
+			    </article><!--//docs-article-->
+			    
+
+			    <article class="docs-article" id="section-faqs">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">FAQs</h1>
+					    <section class="docs-intro">
+						    <p>No FAQs yet!</p>
+						</section><!--//docs-intro-->
+				    </header>
+                                    <!--
+						<h5 class="pt-3"><i class="fas fa-question-circle me-1"></i>What's sit amet quam eget lacinia?</h5>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                                -->
+
+                                                <!--
+                        
+                        <div class="callout-block callout-block-success">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder me-1">
+		                                <i class="fas fa-thumbs-up"></i>
+		                            </span>
+	                                Tip
+	                            </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a href="#">Link example</a> aenean commodo ligula eget dolor.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="callout-block callout-block-danger me-1">
+                            <div class="content">
+                                <h4 class="callout-title">
+	                                <span class="callout-icon-holder">
+		                                <i class="fas fa-exclamation-triangle"></i>
+		                            </span><
+	                                Danger
+	                            </h4>
+                                <p>Morbi eget interdum sapien. Donec sed turpis sed nulla lacinia accumsan vitae ut tellus. Aenean vestibulum <a href="#">Link example</a> maximus ipsum vel dignissim. Morbi ornare elit sit amet massa feugiat, viverra dictum ipsum pellentesque. </p>
+                            </div>
+                        </div>
+                        -->
+
+			    </article><!--//docs-article-->
+
+			    <footer class="footer">
+			      <div class="container text-center py-5">
+                                <!-- Bootstrap template licensed from themes.3rdwavemedia.com -->
+			        <small class="copyright">Vice documentation (c)2022 Matt Pharr, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0 License</a>.</small>
+			      </div>
+			    </footer>
+		    </div> 
+	    </div>
+    </div><!--//docs-wrapper-->
+   
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+    
+    
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script> 
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+    <script src="assets/js/docs.js"></script> 
+
+</body>
+</html> 
+
