@@ -1,197 +1,195 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-    <title>Vice - a cross-platform, open-source, possibly-future VATSIM client</title>
-    
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Documentation for the vice virtual air traffic control client">
-    <meta name="author" content="Matt Pharr">    
-    <link rel="shortcut icon" href="favicon.ico"> 
-    
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome JS-->
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
+  <title>Vice - a cross-platform, open-source, possibly-future VATSIM client</title>
+  
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation for the vice virtual air traffic control client">
+  <meta name="author" content="Matt Pharr">    
+  <link rel="shortcut icon" href="favicon.ico"> 
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome JS-->
+  <script defer src="assets/fontawesome/js/all.min.js"></script>
 
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+  <!-- Theme CSS -->  
+  <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
 
-    <!-- https://stackoverflow.com/a/68189611 -->
-<!-- For all browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/vice/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/vice/favicon-16x16.png">
+  <!-- https://stackoverflow.com/a/68189611 -->
+  <!-- For all browsers -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/vice/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/vice/favicon-16x16.png">
 
-<!-- For Google and Android -->
-<link rel="icon" type="image/png" sizes="48x48" href="assets/vice/favicon-48x48.png">
-<link rel="icon" type="image/png" sizes="192x192" href="assets/vice/favicon-192x192.png">
+  <!-- For Google and Android -->
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/vice/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/vice/favicon-192x192.png">
 
-<!-- For iPad -->
-<link rel="apple-touch-icon" type="image/png" sizes="167x167" href="assets/vice/favicon-167x167.png">
-<!-- For iPhone -->
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/vice/favicon-180x180.png">
-
+  <!-- For iPad -->
+  <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="assets/vice/favicon-167x167.png">
+  <!-- For iPhone -->
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/vice/favicon-180x180.png">
 </head> 
 
 <body>    
-    <header class="header fixed-top">	 
-	       
-        <div class="branding docs-branding">
-            <div class="container-fluid position-relative py-2">
-                <div class="docs-logo-wrapper">
-	                <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/vice/tower-rounded-inset-48x48.png" srcset="assets/vice/tower-rounded-inset-96x96.png 2x" width="48" height="48" alt="logo"><span class="logo-text">Vice<span class="text-alt">:  a cross-platform, open-source, possibly-future VATSIM client</span></span></a></div>    
-                </div><!--//docs-logo-wrapper-->
-            </div><!--//container-->
-        </div><!--//branding-->
-    </header><!--//header-->
+  <header class="header fixed-top">	 
     
-    
-   <div class="page-content">
-      <div class="container-fluid px-0">
-        <div class="row">
-          <div class="col-md-12">
-            <img src="assets/vice/banner2.gif" class="img-fluid">
-          </div>
+    <div class="branding docs-branding">
+      <div class="container-fluid position-relative py-2">
+        <div class="docs-logo-wrapper">
+	  <div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/vice/tower-rounded-inset-48x48.png" srcset="assets/vice/tower-rounded-inset-96x96.png 2x" width="48" height="48" alt="logo"><span class="logo-text">Vice<span class="text-alt">:  a cross-platform, open-source, possibly-future VATSIM client</span></span></a></div>    
+        </div><!--//docs-logo-wrapper-->
+      </div><!--//container-->
+    </div><!--//branding-->
+  </header><!--//header-->
+  
+  
+  <div class="page-content">
+    <div class="container-fluid px-0">
+      <div class="row">
+        <div class="col-md-12">
+          <img src="assets/vice/banner2.gif" class="img-fluid">
         </div>
-      </div><!--//page-header-->
-	    <div class="container">
-		    <div class="docs-overview py-5">
-			    <div class="row justify-content-center">
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-map-signs"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">Introduction</span>
-							    </h5>
-							    <div class="card-text">
-								    An overview of the vice virtual air traffic control client, including its goals and a tour of its key features.
-							    </div>
-							    <a class="card-link-mask" href="documentation.html#section-introduction"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-arrow-down"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">Installation</span>
-							    </h5>
-							    <div class="card-text">
-								    How to download and install vice on your computer, whether it's a Mac or a Windows system.
-							    </div>
-							    <a class="card-link-mask" href="documentation.html#section-installation"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-cogs fa-fw"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">Configuration</span>
-							    </h5>
-							    <div class="card-text">
-								    Configuring vice, including setting up sub-windows and specifying the ATC tools to have available in them.
-								</div>
-							    <a class="card-link-mask" href="documentation.html#section-configuration"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-keyboard"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">Command-Line Interface</span>
-							    </h5>
-							    <div class="card-text">
-								    Using vice's command interface for controlling aircraft and accessing information.
-								</div>
-							    <a class="card-link-mask" href="documentation.html#section-cli"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-plane"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">ATC</span>
-							    </h5>
-							    <div class="card-text">
-								    How to control aircraft using vice. (Note: this is a hypothetical discussion for now, as vice cannot yet connect to VATSIM.)
-								</div>
-							    <a class="card-link-mask" href="documentation.html#section-atc"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-				    <div class="col-12 col-lg-4 py-3">
-					    <div class="card shadow-sm">
-						    <div class="card-body">
-							    <h5 class="card-title mb-3">
-								    <span class="theme-icon-holder card-icon-holder me-2">
-								        <i class="fas fa-lightbulb"></i>
-							        </span><!--//card-icon-holder-->
-							        <span class="card-title-text">FAQs</span>
-							    </h5>
-							    <div class="card-text">
-								    Frequently asked questions about vice&ndash;with answers!
-								</div>
-							    <a class="card-link-mask" href="documentation.html#section-faqs"></a>
-						    </div><!--//card-body-->
-					    </div><!--//card-->
-				    </div><!--//col-->
-			    </div><!--//row-->
-		    </div><!--//container-->
-		</div><!--//container-->
+      </div>
+    </div><!--//page-header-->
+    <div class="container">
+      <div class="docs-overview py-5">
+	<div class="row justify-content-center">
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-map-signs"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">Introduction</span>
+		</h5>
+		<div class="card-text">
+		  An overview of the vice virtual air traffic control client, including its goals and a tour of its key features.
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-introduction"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-arrow-down"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">Installation</span>
+		</h5>
+		<div class="card-text">
+		  How to download and install vice on your computer, whether it's a Mac or a Windows system.
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-installation"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-cogs fa-fw"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">Configuration</span>
+		</h5>
+		<div class="card-text">
+		  Configuring vice, including setting up sub-windows and specifying the ATC tools to have available in them.
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-configuration"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-keyboard"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">Command-Line Interface</span>
+		</h5>
+		<div class="card-text">
+		  Using vice's command interface for controlling aircraft and accessing information.
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-cli"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-plane"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">ATC</span>
+		</h5>
+		<div class="card-text">
+		  How to control aircraft using vice. (Note: this is a hypothetical discussion for now, as vice cannot yet connect to VATSIM.)
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-atc"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	  <div class="col-12 col-lg-4 py-3">
+	    <div class="card shadow-sm">
+	      <div class="card-body">
+		<h5 class="card-title mb-3">
+		  <span class="theme-icon-holder card-icon-holder me-2">
+		    <i class="fas fa-lightbulb"></i>
+		  </span><!--//card-icon-holder-->
+		  <span class="card-title-text">FAQs</span>
+		</h5>
+		<div class="card-text">
+		  Frequently asked questions about vice&ndash;with answers!
+		</div>
+		<a class="card-link-mask" href="documentation.html#section-faqs"></a>
+	      </div><!--//card-body-->
+	    </div><!--//card-->
+	  </div><!--//col-->
+	</div><!--//row-->
+      </div><!--//container-->
+    </div><!--//container-->
 
-	    <div class="container">
-	      <div class="main-search-box pt-3 d-block mx-auto">
-                <form class="search-form w-100">
-		  <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
-		  <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
-		</form>
-	      </div>
-	    </div>
+    <div class="container">
+      <div class="main-search-box pt-3 d-block mx-auto">
+        <form class="search-form w-100">
+	  <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+	  <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+	</form>
+      </div>
+    </div>
 
-    </div><!--//page-content-->
+  </div><!--//page-content-->
 
-    <footer class="footer">
-
-	    <div class="footer-bottom text-center py-5">
-              <!-- Bootstrap template licensed from themes.3rdwavemedia.com -->
-	      <small class="copyright">Vice documentation (c)2022 Matt Pharr, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0 License</a>.</small>
-	    </div>
-	    
-    </footer>
-       
-    <!-- Javascript -->          
-    <script src="assets/plugins/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+  <footer class="footer">
+    <div class="footer-bottom text-center py-5">
+      <!-- Bootstrap template licensed from themes.3rdwavemedia.com -->
+      <small class="copyright">Vice documentation (c)2022 Matt Pharr, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA 2.0 License</a>.</small>
+    </div>
     
-    <!-- Page Specific JS -->
-    <script src="assets/plugins/smoothscroll.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
-    <script src="assets/js/highlight-custom.js"></script> 
-    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
-    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
-    <script src="assets/js/docs.js"></script> 
-
+  </footer>
+  
+  <!-- Javascript -->          
+  <script src="assets/plugins/popper.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+  
+  <!-- Page Specific JS -->
+  <script src="assets/plugins/smoothscroll.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+  <script src="assets/js/highlight-custom.js"></script> 
+  <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="assets/js/docs.js"></script> 
+  
 </body>
 </html> 
 
