@@ -228,7 +228,7 @@ source code distribution for details.
             <h1 class="docs-heading">Configuration</h1>
 
             <section class="docs-intro">
-              <p>The <i>vice</i> client is extensively configurable, both in terms of what tools are available to the controller and also in terms of how the controlls behave.
+              <p>The <i>vice</i> client is extensively configurable, both in terms of what tools are available to the controller and also in terms of how the controls behave.
                 This section documents much of how <i>vice</i> is configured, though doesn't cover all details.
                 Experimenting with the features and digging into the options is encouraged!
               </p>
@@ -922,28 +922,28 @@ source code distribution for details.
             <br>
             <p>
               (For <a href="https://nyartcc.org">ZNY controllers</a>, there is a <code>nyprd</code> command that looks up routes in the ZNY PRD.)
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Function</th>
-                    <th>Example</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>faaprd</code>&nbsp;<i>callsign</i></td>
-                    <td>Print any routes for the aircraft from the FAA preferred route database.</td>
-                    <td><code>faaprd&nbsp;UAL955</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>nyprd</code>&nbsp;<i>callsign</i></td>
-                    <td>Print any routes for the aircraft from the ZNY preferred route database.</td>
-                    <td><code>nyprd&nbsp;DDX2</code></td>
-                  </tr>
-                </tbody>
-              </table>
             </p>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Function</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>faaprd</code>&nbsp;<i>callsign</i></td>
+                  <td>Print any routes for the aircraft from the FAA preferred route database.</td>
+                  <td><code>faaprd&nbsp;UAL955</code></td>
+                </tr>
+                <tr>
+                  <td><code>nyprd</code>&nbsp;<i>callsign</i></td>
+                  <td>Print any routes for the aircraft from the ZNY preferred route database.</td>
+                  <td><code>nyprd&nbsp;DDX2</code></td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="callout-block callout-block-info">
               <div class="content">
@@ -968,48 +968,48 @@ source code distribution for details.
               when controlling.
               While experienced controllers may have little need for these functions, they are intended to be helpful for
               new controllers as they are learning how to control aircraft in VATSIM.
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Command</th>
-                    <th>Function</th>
-                    <th>Example</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><code>find</code>&nbsp;<i>item</i></td>
-                    <td>Highlight the specified item in any radar scopes where it is visible. The item
-                      may be a VOR, a NDB, a fix, an airport, or a callsign.</td>
-                    <td><code>find&nbsp;PTW</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>info</code>&nbsp;<i>item</i></td>
-                    <td>Print information about the item.  If a callsign is specified, the flight plan and further
-                      information about the aircraft is printed. For VORs and NDBs, the location and associated name
-                      are printed. If the alphabetical part of a callsign is entered (e.g., "BAW"), the associated
-                      telephony is printed (e.g., "speedbird").</td>
-                    <td><code>info&nbsp;BAW</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>mit</code>&nbsp;<i>callsign...</i></td>
-                    <td>Adds the specified aircraft to the end of the <a href="#miles-in-trail-list">miles in trail list</a>. If no aircraft are specified, the miles in trail list is cleareed.</td>
-                    <td><code>mit&nbsp;JBU2212&nbsp;UPS144&nbsp;AAL1402</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>timer</code>&nbsp;<i>minutes</i>&nbsp;<i>note...</i></td>
-                    <td>Adds a timer to the <a href="#reminders">Reminders subwindow</a>.
-                      If a sound has been assigned to timers in the Sounds dialog box, that sound will be played when the timer expires.</td>
-                    <td><code>timer&nbsp;5&nbsp;release&nbsp;for&nbsp;N23B&nbsp;expires</code></td>
-                  </tr>
-                  <tr>
-                    <td><code>todo</code>&nbsp;<i>note...</i></td>
-                    <td>Adds an item to the todo list that is shown in the <a href="#reminders">Reminders subwindow</a>.</td>
-                    <td><code>todo&nbsp;dal2204&nbsp;needs&nbsp;clearance</code></td>
-                  </tr>
-                </tbody>
-              </table>
             </p>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Command</th>
+                  <th>Function</th>
+                  <th>Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>find</code>&nbsp;<i>item</i></td>
+                  <td>Highlight the specified item in any radar scopes where it is visible. The item
+                    may be a VOR, a NDB, a fix, an airport, or a callsign.</td>
+                  <td><code>find&nbsp;PTW</code></td>
+                </tr>
+                <tr>
+                  <td><code>info</code>&nbsp;<i>item</i></td>
+                  <td>Print information about the item.  If a callsign is specified, the flight plan and further
+                    information about the aircraft is printed. For VORs and NDBs, the location and associated name
+                    are printed. If the alphabetical part of a callsign is entered (e.g., "BAW"), the associated
+                    telephony is printed (e.g., "speedbird").</td>
+                  <td><code>info&nbsp;BAW</code></td>
+                </tr>
+                <tr>
+                  <td><code>mit</code>&nbsp;<i>callsign...</i></td>
+                  <td>Adds the specified aircraft to the end of the <a href="#miles-in-trail-list">miles in trail list</a>. If no aircraft are specified, the miles in trail list is cleared.</td>
+                  <td><code>mit&nbsp;JBU2212&nbsp;UPS144&nbsp;AAL1402</code></td>
+                </tr>
+                <tr>
+                  <td><code>timer</code>&nbsp;<i>minutes</i>&nbsp;<i>note...</i></td>
+                  <td>Adds a timer to the <a href="#reminders">Reminders subwindow</a>.
+                    If a sound has been assigned to timers in the Sounds dialog box, that sound will be played when the timer expires.</td>
+                  <td><code>timer&nbsp;5&nbsp;release&nbsp;for&nbsp;N23B&nbsp;expires</code></td>
+                </tr>
+                <tr>
+                  <td><code>todo</code>&nbsp;<i>note...</i></td>
+                  <td>Adds an item to the todo list that is shown in the <a href="#reminders">Reminders subwindow</a>.</td>
+                  <td><code>todo&nbsp;dal2204&nbsp;needs&nbsp;clearance</code></td>
+                </tr>
+              </tbody>
+            </table>
             <p>
               By default, the <code>find</code> command highlights the item with a red circle on the radar scope, though the color
               used can be changed using the color editor. Here is an example of running <code>find mxe</code> to locate a VOR near KPHL.
@@ -1074,7 +1074,7 @@ source code distribution for details.
                   </tr>
                 </tbody>
               </table>
-              <p>As with earlier commands, if there is a currently-selected aircraft, then the callsign need not be specified.
+            <p>As with earlier commands, if there is a currently-selected aircraft, then the callsign need not be specified.
               Further, as before, aircraft callsigns may be abbreviated when the abbreviation is unambiguous.
               Finally, as with the <code>alt</code> command, the altitude specified with <code>tempalt</code> may either be in feet or in hundreds of feet.
             </p>
