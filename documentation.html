@@ -25,6 +25,20 @@
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
 
+    <!-- https://stackoverflow.com/a/68189611 -->
+<!-- For all browsers -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/vice/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/vice/favicon-16x16.png">
+
+<!-- For Google and Android -->
+<link rel="icon" type="image/png" sizes="48x48" href="assets/vice/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/vice/favicon-192x192.png">
+
+<!-- For iPad -->
+<link rel="apple-touch-icon" type="image/png" sizes="167x167" href="assets/vice/favicon-167x167.png">
+<!-- For iPhone -->
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="assets/vice/favicon-180x180.png">
+
 </head> 
 
 <body class="docs-page">    
@@ -74,6 +88,7 @@
 				    <li class="nav-item"><a class="nav-link scrollto" href="#configs">Configs</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#windows">Subwindows</a></li>
                                     <ul>
+				      <li class="nav-item"><a class="nav-link scrollto" href="#layout-editing">Editing the Layout</a></li>
 				      <li class="nav-item"><a class="nav-link scrollto" href="#window-organization">Organization</a></li>
 				      <li class="nav-item"><a class="nav-link scrollto" href="#radar-scopes">Radar Scopes</a></li>
 				      <li class="nav-item"><a class="nav-link scrollto" href="#cli-window">Command-line Interface</a></li>
@@ -121,14 +136,14 @@
 				    </header>
 				    <section class="docs-section" id="goals">
 						<h2 class="section-heading">Goals</h2>
-						<p>It's fair to ask, why another VATSIM client? The <i>vice</i> project started out of curiousity with an interest
+						<p>It's fair to ask, why another VATSIM client? The <i>vice</i> project started out of curiosity with an interest
                                                   in trying out some new ideas for how a client might work.
                                                   I asked myself "how hard could it be?", and as always seems to be the case, the answer to that question was "much harder
                                                   than it seemed at first."
                                                   Nevertheless, once you get far enough with something like this, your choice is to finish it or throw it away, incomplete.
                                                   Not wanting to the effort to go to waste, I went with finishing it.
                                                 </p>
-                                                <p>A few further motivations became clear as I made progress.  The first was <b>cross-platform support</b>: the ability to use VATSIM on non-Windows computers (both Macs and Linux) is of interest to many; <i>vice</i> was therefore written to be cross-platfrom from the start.
+                                                <p>A few further motivations became clear as I made progress.  The first was <b>cross-platform support</b>: the ability to use VATSIM on non-Windows computers (both Macs and Linux) is of interest to many; <i>vice</i> was therefore written to be cross-platform from the start.
                                                   The next was that it be <b>open source</b>: the source code to <i>vice</i> is freely available; my hope is that it will see further improvements thanks to the contributions of additional developers.</p>
                                                 <p>
                                                   In its current form, </i>vice</i> does not strive to replicate the experience of using a particular real-world ATC system.
@@ -189,7 +204,7 @@ Finally, thanks to our AI overlord <a href="https://openai.com/dall-e-2/">DALL-E
 						<p>To install <i>vice</i> on Windows, download and launch the installer below.
                                                   After installation, you can find the <i>vice</i> application in the <i>Program Files (x86)/Vice</i> folder.
 (Apologies that the installer does not yet offer the option of adding <i>vice</i> to your program menu or making a desktop shortcut; that will
-be remedied in a future relase.)
+be remedied in a future release.)
                                                 </p>
 
                                     <a href="installers/Vice-v0.1.0 Installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.1.0 for Windows</a>
@@ -213,160 +228,384 @@ be remedied in a future relase.)
 				    <header class="docs-header">
 					    <h1 class="docs-heading">Configuration</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+					      <p>The <i>vice</i> client is extensively configurable, both in terms of what tools are available to the controller and also in terms of how the controlls behave.
+                                                This section documents much of how <i>vice</i> is configured, though doesn't cover all details.
+                                                Experimenting with the features and digging into the options is encouraged!
+                                              </p>
+
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="sector-position">
 						<h2 class="section-heading">Sector and Position Files</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<p><i>vice</i> reads the standard SCT2 sector files and POF position files, as used for example in VRC.
+                                                  The first time you launch <i>vice</i> you will be presented with a message asking you to provide the locations of these files to <i>vice</i>.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/sector-position.png" srcset="assets/vice/sector-position-2x.png 2x" width="520" height="42">
+                                                  </div>
+                                                  <br>
+                                                  Select the "Settings/General..." menu item and do so and you will then be able to get started exploring <i>vice</i>.
+                                                  </p>
 					</section><!--//section-->
 
 				     <section class="docs-section" id="configs">
 						<h2 class="section-heading">Configs</h2>
-						<p>One of the key concepts in <i>vice</i> is the <b>Config</b>: a config...
-                                                  Typically, 
+						<p>One of the key concepts in <i>vice</i> is the <b>Config</b>.
+                                                  A Config represents an organization of the <i>vice</i> window&ndash;the radar scopes that are available and their settings, and the additional tools that are present.
+                                                  (In the next section, <a href="#subwindows">Subwindows</a>, we will go into much detail about the items that can be placed in the <i>vice</i> window.)</p>
+                                                <p>
+                                                  One might typically have a separate config for each position that one controls&ndash;one for JFK_GND and another for JFK_TWR, for example.
+                                                  The Config gives a convenient way to organize all of the <i>vice</i> settings that one might want to change when controlling different positions.
+                                                  As an example, here is a config that's a reasonable one for JFK_TWR.
+                                                  Most of the window is devoted to the tower's radar scope.
+                                                  To the left is various information about the weather at JFK, the departures, arrivals, and the other online controllers.
+                                                  Going across the bottom of the window, we have a radar scope for ground control, a place for entering commands with the keyboard, and a subwindow that shows the flight plan ofr the currently selected aircraft, JBU917.
                                                 </p>
+                                                <div class="text-center">
+                                                  <img src="assets/vice/jfk-config" srcset="assets/vice/jfk-config-2x.gif 2x" width="1413" height="764" class="img-fluid">
+                                                </div>
+                                                <br>
+                                                <p>
+                                                  The top-level "Configs" menu makes it possible to create new Configs from scratch or by cloning existing ones.
+                                                  Configs can also be renamed and deleted.
+                                                  All of the available Configs are listed below the separator in the menu.
+                                                  Switching between them is instantaneous and can be done using the menu. 
+<div class="text-center">
+<img src="assets/vice/configs-menu.png" srcset="assets/vice/configs-menu-2x.png 2x" width="172" height="239">
+</div>                                                
 					</section><!--//section-->
 					
 				     <section class="docs-section" id="windows">
-						<h2 class="section-heading">Subwindows</h2>
-						<p>Few to no requirements.
-                                                  If you're only doing clearance delivery, for example, you don't need a radar scope.
-                                                  Or if you're watching live traffic for entertainment, you might not have a command-line interface subwindow.
-                                                  But in general, will have at least one radar scope, the command-line interface, a flight plan subwindow and an airport information subwindow.
-                                                </p>
-
-                                                <p>how to configure them...</p>
+				       <h2 class="section-heading">Subwindows</h2>
+                                       <p>
+                                         <i>vice</i> only opens a single window on the screen.
+                                         (You're encouraged to make it full-screen.)
+                                         That window is then split into <i>subwindows</i>, where each subwindow has a tool associated with it.
+                                         We were introduced to this idea above, with the Config for controlling JFK_TWR that had two radar scopes, a command-line interface section, and various other information displayed on the screen.
+                                       </p>
+                                       <p>With this approach, there's no need to worry about organizing multiple windows on your screen and having to deal with things being covered up when they overlap.
+                                         Every pixel in the <i>vice</i> window is associated with exactly one subwindow and thus, exactly one tool.
+                                         </p>
+				       <p><i>vice</i> imposes very few restrictions about how you configure your subwindows.
+                                         If you were only doing clearance delivery, for example, you might not even have a radar scope visible but would instead just have flight plans and airport information available to you.
+                                         Or if you were using <i>vice</i> to watch live traffic for entertainment, you might not have a command-line interface subwindow since you have no aircraft under your control.
+                                         However, most of the time you will have at least one radar scope, the command-line interface, a flight plan subwindow and an airport information subwindow.
+                                       </p>
+                                       <p>
+                                         Select the "Subwindows" main menu item to configure the subwindows in your Config.
+                                         Each one will have an entry in the menu.
+                                       </p>
+                                         <div class="text-center">
+                                           <img src="assets/vice/subwindow-settings.png" srcset="assets/vice/subwindow-settings-2x.png 2x" width="219" height="141">
+                                       </div>
 
                                      </section> <!--windows-->
-					
-				                <section class="docs-section" id="window-organization">
-						<h3 class="section-heading">Organization</h3>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+
+				     <section class="docs-section" id="layout-editing">
+				       <h3 class="section-heading">Editing the Layout</h3>
+                                       <p>When you first launch <i>vice</i>, you will be presented with a default Config with a few commonly-used subwindows.
+                                         You can then edit that Config to your liking, or you can create a new Config from scratch.
+                                         Here we will walk through how one organizes a brand-new Config, though the same ideas apply to editing an existing one.
+                                       </p>
+                                       
+				     </section>
+
+				     <section class="docs-section" id="window-organization">
+				       <h3 class="section-heading">Organization</h3>
+                                       
+				       <p>Even outside of the Config editor, it's easy to change the size of subwindows: just right-click on the lines that separate them and drag them.
+                                         In this way you can fine-tune the size of your subwindows to achieve a layout that works for you.
+                                       </p>
+                                       <div class="text-center">
+                                         <img src="assets/vice/resize-subwindows" srcset="assets/vice/resize-subwindows-2x.gif 2x" width="1421" height="764" class="img-fluid">
+                                       </div>
+                                       <br>
+                                       <p>It's also possible to select a subwindow to temporarily take over the entire <i>vice</i> window.
+                                         Hover your mouse over the subwindow you'd like to enlarge and hit control-f.
+                                         When you're ready to go back to the original view, hit control-f again.
+                                         This feature makes it possible to have very small radar scopes when doing top-down control on VATSIM, like the ground radar in the earlier JFK_TWR example.
+                                         Sometimes you may be able to do ground control from the small subwindow, but if you need a closer view, one is easily at hand.
+                                         Here's an example:
+                                       </p>
+                                       <div class="text-center">
+                                         <img src="assets/vice/control-f" srcset="assets/vice/control-f-2x.gif 2x" width="1421" height="764" class="img-fluid">
+                                       </div>
+                                     </section>
+
+				     <section class="docs-section" id="radar-scopes">
+				       <h3 class="section-heading">Radar Scopes</h3>
+				       <p>Radar scopes are at the heart of any virtual ATC client, <i>vice</i> included.
+                                         A radar scope must clearly show important information to the controller, accurately rendered, while not distracting them with unnecessary information.
+                                         What is important and what is not depends both on the position being controlled and the individual controller, so <i>vice</i> offers a highly-configurable radar scope so that each user can set their radar scopes up it in the way that is most useful to them.
+                                       </p>
+                                     </section>
+
+                                     <section class="docs-section" id="mouse-radar-scopes">
+				       <h4 class="section-heading">Using the Mouse</h4>
+
+                                       <p>The mouse can be used to do a number of things in a radar scope.
+                                         Left clicking on an aircraft's track or datablock selects it, and left-clicking away from any aircraft deselects the currently-selected aircraft.
+                                         The currently selected aircraft is the one whose flight plan is displayed in the <a href="#flight-plan">flight plan subwindow</a>.
+                                         It is also extensively used by commands in <i>vice</i>'s <a href="#section-cli">command-line interface</a>.
+                                       </p>
+                                       <p>The placement of data blocks can be manually adjusted by left-clicking and dragging them.
+                                         </p>
+                                       <p>Double-left-clicking and dragging from one point to another shows and indicator that gives both the distance between the two points in nm as well as the heading and reciprocal heading between them.
+                                         </p>
+                                       <div class="text-center">
+                                         <img src="assets/vice/radar-scope-distance-measure.gif" srcset="assets/vice/radar-scope-distance-measure-2x.gif 2x" width="735" height="255" class="img-fluid">
+                                       </div>
+                                       <br>
+                                       <p>Right-clicking and dragging adjusts the position of the scope and the scroll wheel can be used to zoom in and out.
+                                         </p>
+                                     </section>
+                                                
+                                     <section class="docs-section" id="radar-scopes-settings">
+				       <h4 class="section-heading">Settings</h4>
+
+                                       <p>The settings window for radar scopes offers numerous configurable options.
+                                         When first opened, most of them are hidden under subheadings.
+                                         Of the visible ones, the first allows the scope's name can be specified.
+                                         The scope name is shown in its upper-left corner and is used to distinguish between scopes in the "Subwindows" menu.
+                                         A range of altitudes can be specified as well.
+                                         Any aircraft outside of this range are not shown on the scope.
+                                         <div class="text-center">
+                                           <img src="assets/vice/radar-settings.png" srcset="assets/vice/radar-settings-2x.png 2x" width="396" height="230">
+                                         </div>
+                                       </p>
+
+                                       <p>The first subheading offers options for configuring how aircraft are shown.
+                                         A number of data block formats are available, with varying amount of information available.
+                                         The current selections, "none", "simple", "ground", "tower", and "full" generally correspond to the data block formats offered by VRC.
+                                         If "Vector lines" is selected, the user can configure the length of a vector line in front of aircraft.
+                                         It may be specified either as a fixed number of nautical miles or as the estimated distance the aircraft will travel in the specified number of minutes.
+                                         Finally, there is an experimental feature, "Automatic datablock layout", which tries to move overlapping datablocks so that they no longer overlap.
+                                         When it works, it a handy feature, though it is still a work in progress; it causes data blocks to jump all over the place when there are too many of them.
+                                         <div class="text-center">
+                                           <img src="assets/vice/radar-aircraft-rendering.png" srcset="assets/vice/radar-aircraft-rendering-2x.png 2x" width="524" height="133">
+                                         </div>
+                                       </p>
+
+                                       <p>The next subheading makes it possible to control the appearance of the radar scope.
+                                         Fonts and line widths can be set, and the scope can be rotated; this can be especially useful for ground control where having North exactly up may be less important than reducing the space the airport takes on the radar scope by rotating it accordingly.
+                                         <div class="text-center">
+                                           <img src="assets/vice/radar-scope-appearance.png" srcset="assets/vice/radar-scope-appearance-2x.png 2x" width="386" height="218">
+                                         </div>
+                                       </p>
+
+                                       <p>The third subheading, Tools, offers a number of useful tools to enable in radar scopes.
+                                         Each of these will be discussed in more detail shortly. 
+                                         <div class="text-center">
+                                           <img src="assets/vice/radar-scope-tools.png" srcset="assets/vice/radar-scope-tools-2x.png 2x" width="386" height="139">
+                                         </div>
+                                       </p>
+
+                                       <p>Finally, the Scope Contents heading allows control over drawing all of the objects that are defined in the sector file.
+                                         In addition to all of the fixed types of objects&ndash;VORs, airways, etc.&ndash;it also allows selecting objects like video
+                                         maps and airspace outlines that are defined in the sector file.
+                                         <div class="text-center">
+                                           <img src="assets/vice/radar-scope-contents.png" srcset="assets/vice/radar-scope-contents-2x.png 2x" width="644" height="575">
+                                         </div>
+                                         </p>
+                                     </section>
+
+                                                <section class="docs-section" id="scope-compass">
+						  <h4 class="section-heading">Compass Directions</h4>
+                                                  <p>Selecting "Draw compass directions at edges" is selected in the "Tools" subheading causes a compass to be drawn on the scope.
+                                                    If no aircraft is selected, the directions are with respect to the center of the scope, but if an aircraft is selected,
+                                                    they are with respect to the aircraft's position, as shown in the example below.
+                                                    
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/radar-scope-compass.gif" srcset="assets/vice/radar-scope-compass-2x.gif 2x" width="820" height="424" class="img-fluid">
+                                                    </div>
+                                                    </p>
+
                                                 </section>
 
-				                <section class="docs-section" id="radar-scopes">
-						<h3 class="section-heading">Radar Scopes</h3>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+                                                <section class="docs-section" id="scope-range indicators">
+						  <h4 class="section-heading">Range Indicators</h4>
+                                                  <p>If the "Range indicators" option is selected, a number of additional sliders and buttons appear.
+                                                    It is possible to configure the radar scope to both issue early warnings at a greater distance and to
+                                                    issue alerts when a violation occurs.
+                                                    The criteria for these can each be set individually for pairs of IFR/IFR aircraft, IFR/VFR, and VFR/VFR, depending on the
+                                                    airspace being controlled.
+                                                    Furthermore, situations between aircraft can be shown both with classic range rings as well as with a line between them, depending on the controller's preference.
+                                                  <div class="text-center">
+                                                    <img src="assets/vice/radar-scope-range-indicators.png" srcset="assets/vice/radar-scope-range-indicators-2x.png 2x" width="639" height="214">
+                                                  </div>
+                                                  </p>
 
-                                                <p>Click aircraft to select it. This affects what's displayed in the <a href="#flight-plan">flight plan subwindow</a> as well as the currently selected aircraft in the <a href="#section-cli">command-line interface</a>.</p>
+                                                  <p>Here is a demonstration of the range indicators, courtesy of a misbehaving aircraft during an event.
+                                                    Circles are used at first and then the settings are changed to use a line.
+                                                    The line shows both the distance between the aircraft in nm as well as their altitude difference in hundreds of feet.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/radar-scope-range-indicators.gif" srcset="assets/vice/radar-scope-range-indicators-2x.gif 2x" width="595" height="376" class="img-fluid">
+                                                    </div>
+                                                    </p>
 
                                                 </section>
+
 
                                                 <section class="docs-section" id="miles-in-trail-list">
-						<h4 class="section-heading">The Miles in Trail List</h4>
+						  <h4 class="section-heading">The Miles in Trail List</h4>
+                                                  <p>The radar scope can also show the miles in trail (MIT) between aircraft in an approach sequence.
+                                                    The sequence can specified directly using the <a href="#managing-information"><code>mit</code></a> command.
+                                                    Alternatively, <i>vice</i> has an experimental feature where it tries to infer the landing sequence based on the positions of
+                                                    aircraft arriving at an airport and draw MIT indicators automatically.
+                                                    This feature is enabled with the "Automatic MIT lines for arrivals" option in the "Tools" submenu of the radar settings window.
+                                                  </p>
+                                                  <p>Here is an example, with the arrival sequence SKY1548, B1350, SWA542, and DAL26550.
+                                                    For each pair, both their current distance and their predicted distance 30 seconds in the future are reported.
+                                                    The predicted distance accounts for the respective speeds and headings of both aircraft. 
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/radar-scope-mit.gif" srcset="assets/vice/radar-scope-mit-2x.gif 2x" width="612" height="331" class="img-fluid">
+                                                    </div>
+                                                    </p>
+                                                </section>
+
+                                                <section class="docs-section" id="scope-crda">
+						  <h4 class="section-heading">Converging Runway Display Aid</h4>
+                                                  <p>The Converging Runway Display Aid tool draws "ghost" aircraft in the arrival sequence of converging runways,
+                                                    so that a controller can sequence the two runways properly.
+                                                    It is based on a tool in the real-world STARS system, which is also replicated in vSTARS.
+                                                  </p>
+                                                  <p>
+                                                    If this option is selected in the radar scope settings, many additional controls appear.
+                                                    First, it is necessary to specify the airport of interest so that <i>vice</i> can determine its runways.
+                                                    Next, a primary and secondary runway are specified, indicating the two converging runways in use.
+                                                    By default, the ghost aircraft are drawn in the secondary runway's sequence, though an option allows having them in the primary runway's.
+                                                    The "stagger" mode draws the ghost the same distance from the intersection point of the two runways along the secondary
+                                                    approach, while "tie" offsets the aircraft by a specified distance.
+                                                    With "stagger" mode, one sequences as if the ghost was where it appears, while with "tie", one attempts to have aircraft on the secondary approach overlap the ghost aircraft.
+                                                    A number of additional options control how <i>vice</i> decides if an aircraft is on approach for the primary runway.
+                                                    Hopefully, they can be left alone.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/radar-scope-crda-settings.png" srcset="assets/vice/radar-scope-crda-settings-2x.png 2x" width="466" height="297">
+                                                    </div>
+                                                  </p>
+
+                                                  <p>
+                                                    Here is <i>vice</i>'s CRDA feature in action using real-world traffic at KPHL.
+                                                    (See <a href="#section-atc">below</a> for information about how to use real-world air traffic in <i>vice</i>.)
+                                                    We have FFT1462 on final approach for runway 9R while EJA730 is on final for runway 35.
+                                                    Runway 9R has been designated the primary runway, so the secondary runway, 35, has a ghost of FFT1462 in the sequence.
+                                                    Ghost aircraft have their callsigns drawn in a different color and do not cause range indicator warnings.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/radar-scope-crda.gif" srcset="assets/vice/radar-scope-crda-2x.gif 2x" width="568" height="463" class="img-fluid">
+                                                    </div>
+                                                    <br>
+                                                    In this case, the spacing seems a bit tight, so we'll assume tower-visual separation is being applied.
+                                                    </p>
                                                 </section>
 
 				                <section class="docs-section" id="cli-window">
-						<h3 class="section-heading">Command-Line Interface</h3>
+						  <h3 class="section-heading">Command-Line Interface</h3>
 
-                                                <p>An instance of the command-line interface subwindow must be part of a Config for the user to be able to enter
-                                                  keyboard commands.
-                                                  It has no settings beyond the selection of a font and font size to use for it.
-                                                </p>
-                                                
-                                                <div class="content">
-                                                  <div class="callout-block callout-block-info">
-                                                    <h4 class="callout-title">
-	                                              <span class="callout-icon-holder me-1">
-		                                        <i class="fas fa-info-circle"></i>
-		                                      </span><!--//icon-holder-->
-	                                            </h4>
-                                                    <p>This subwindow is unusual in that only one instance of it can be created in a config; it doesn't make sense to have more than one available, since both would receive the same input from the user.</p>
-                                                  </div><!--//callout-block-->
+                                                  <p>An instance of the command-line interface subwindow must be part of a Config for the user to be able to enter
+                                                    keyboard commands.
+                                                    It has no settings beyond the selection of a font and font size to use for it.
+                                                  </p>
+                                                  
+                                                  <div class="content">
+                                                    <div class="callout-block callout-block-info">
+                                                      <h4 class="callout-title">
+	                                                <span class="callout-icon-holder me-1">
+		                                          <i class="fas fa-info-circle"></i>
+		                                        </span><!--//icon-holder-->
+	                                              </h4>
+                                                      <p>This subwindow is unusual in that only one instance of it can be created in a Config; it doesn't make sense to have more than one available, since both would receive the same input from the user.</p>
+                                                    </div><!--//callout-block-->
                                                   </div><!--//content-->
-
                                                 </section>
 
 				                <section class="docs-section" id="information">
-						<h3 class="section-heading">Airport Information</h3>
-						<p>The Airport Information subwindow can be used to display a variety of information about one or more airports.
-                                                  Which airports are covered by an Airport Information subwindow can be entered in its settings window.
-                                                  Each of the following can be included in the information displayed, again determined by the subwindow's settings.
-                                                </p>
-                                                <p>The current time and the weather for the selected airports. (Here, only KPHL is selected.)
-                                                  The altimeter and winds are highlighted, for ease of finding them quickly.
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-weather.png" srcset="assets/vice/airport-weather-2x.png 2x" width="515" height="66">
-                                                  </div>
-                                                </p>
-                                                <p>Uncleared aircraft on the ground at the selected airports. Basic information about the flight plan is shown in the display, including the aircraft's filed route.
-                                                  In this way, when a pilot first connects, it's easy to quickly see if their flight plan has problems.
-                                                  ("Uncleared" is currently determined using the heuristic that aircraft without assigned squawk codes are assumed to be uncleared.)
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-uncleared.png" srcset="assets/vice/airport-uncleared-2x.png 2x" width="515" height="48">
-                                                  </div>
-                                                </p>
-                                                <p>Aircraft that have been cleared but have not yet departed are listed under "Departures".
-                                                  The information included is tailored to the needs of ground and tower controllers, including aircraft type
-                                                  (for wake turbulence purposes), the cleared altitude, and the start of their route.
-                                                  Here the second aircraft has an indicator that shows that it is not squawking mode Charlie.
-                                                  Aircraft that are squawking a code other than their assigned code are also flagged here.
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-departures.png" srcset="assets/vice/airport-departures-2x.png 2x" width="515" height="48">
-                                                  </div>
-                                                </p>
-                                                <p>Aircraft that have left the airport and are in the air can be shown under "Departed".
-                                                  Here, the cleared altitude is shown first and the aircraft's current altitude is shown afterward.
-                                                  The scratchpad is shown between the aircraft type and the cleared altitude.
-                                                  In this case, both aircraft have empty scratchpads.
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-departed.png" srcset="assets/vice/airport-departed-2x.png 2x" width="515" height="43">
-                                                  </div>
-                                                </p>
-                                                <p>Next, arrivals can be shown. The format parallels that of departed aircraft, with the scratchpad after the aircraft type.
-                                                  Next is the aircraft's temporary altitude, if set, followed by its altitude.
-                                                  Its distance to the airport is shown last.
-                                                  Note that arrivals are not sorted strictly by their distance to the airport; an aircraft 10,000 feet directly above the field may be assumed to be arriving later than one 6nm away at 2,000 feet.
-                                                  The sorting of arrivals attempts to display them in the order in which they will reach the airport, given these considerations. 
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-arrivals.png" srcset="assets/vice/airport-arrivals-2x.png 2x" width="515" height="44">
-                                                  </div>
-                                                </p>
-                                                <p>Finally, the active controllers are listed. In addition to the positions and radio frequencies, the sector id is displayed for each position if it is available.
-                                                  Furthermore, the character used to identify aircraft tracked by the controller on radar scopes is shown, again if it is known.
-                                                  <div class="text-center">
-                                                    <img src="assets/vice/airport-controllers.png" srcset="assets/vice/airport-controllers-2x.png 2x" width="515" height="45">
-                                                  </div>
-                                                </p>
+						  <h3 class="section-heading">Airport Information</h3>
+						  <p>The Airport Information subwindow can be used to display a variety of information about one or more airports.
+                                                    Which airports are covered by an Airport Information subwindow can be entered in its settings window.
+                                                    Each of the following can be included in the information displayed, again determined by the subwindow's settings.
+                                                  </p>
+                                                  <p>The current time and the weather for the selected airports. (Here, only KPHL is selected.)
+                                                    The altimeter and winds are highlighted, for ease of finding them quickly.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-weather.png" srcset="assets/vice/airport-weather-2x.png 2x" width="515" height="66">
+                                                    </div>
+                                                  </p>
+                                                  <p>Uncleared aircraft on the ground at the selected airports. Basic information about the flight plan is shown in the display, including the aircraft's filed route.
+                                                    In this way, when a pilot first connects, it's easy to quickly see if their flight plan has problems.
+                                                    ("Uncleared" is currently determined using the heuristic that aircraft without assigned squawk codes are assumed to be uncleared.)
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-uncleared.png" srcset="assets/vice/airport-uncleared-2x.png 2x" width="515" height="48">
+                                                    </div>
+                                                  </p>
+                                                  <p>Aircraft that have been cleared but have not yet departed are listed under "Departures".
+                                                    The information included is tailored to the needs of ground and tower controllers, including aircraft type
+                                                    (for wake turbulence purposes), the cleared altitude, and the start of their route.
+                                                    Here the second aircraft has an indicator that shows that it is not squawking mode Charlie.
+                                                    Aircraft that are squawking a code other than their assigned code are also flagged here.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-departures.png" srcset="assets/vice/airport-departures-2x.png 2x" width="515" height="48">
+                                                    </div>
+                                                  </p>
+                                                  <p>Aircraft that have left the airport and are in the air can be shown under "Departed".
+                                                    Here, the cleared altitude is shown first and the aircraft's current altitude is shown afterward.
+                                                    The scratchpad is shown between the aircraft type and the cleared altitude.
+                                                    In this case, both aircraft have empty scratchpads.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-departed.png" srcset="assets/vice/airport-departed-2x.png 2x" width="515" height="43">
+                                                    </div>
+                                                  </p>
+                                                  <p>Next, arrivals can be shown. The format parallels that of departed aircraft, with the scratchpad after the aircraft type.
+                                                    Next is the aircraft's temporary altitude, if set, followed by its altitude.
+                                                    Its distance to the airport is shown last.
+                                                    Note that arrivals are not sorted strictly by their distance to the airport; an aircraft 10,000 feet directly above the field may be assumed to be arriving later than one 6nm away at 2,000 feet.
+                                                    The sorting of arrivals attempts to display them in the order in which they will reach the airport, given these considerations. 
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-arrivals.png" srcset="assets/vice/airport-arrivals-2x.png 2x" width="515" height="44">
+                                                    </div>
+                                                  </p>
+                                                  <p>Finally, the active controllers are listed. In addition to the positions and radio frequencies, the sector id is displayed for each position if it is available.
+                                                    Furthermore, the character used to identify aircraft tracked by the controller on radar scopes is shown, again if it is known.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/airport-controllers.png" srcset="assets/vice/airport-controllers-2x.png 2x" width="515" height="45">
+                                                    </div>
+                                                  </p>
                                                 </section>
 
 				                <section class="docs-section" id="flight-plan">
-						<h3 class="section-heading">Flight Plan</h3>
-						<p>There's not much to say about the flight plan window, though it's an invaluable tool; it shows the flight plan for whichever aircraft is currently selected.
-                                                  (See further <a href="#selecting-aircraft">discussion of selecting aircraft</a> for more information on aircraft selection.)
-<div class="text-center">
-<img src="assets/vice/flightplan.png" srcset="assets/vice/flightplan-2x.png 2x" width="468" height="55">
-</div>
-</p>
+						  <h3 class="section-heading">Flight Plan</h3>
+						  <p>There's not much to say about the flight plan window, though it's an invaluable tool; it shows the flight plan for whichever aircraft is currently selected.
+                                                    (See further <a href="#selecting-aircraft">discussion of selecting aircraft</a> for more information on aircraft selection.)
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/flightplan.png" srcset="assets/vice/flightplan-2x.png 2x" width="468" height="55">
+                                                    </div>
+                                                  </p>
                                                 </section>
 
 				                <section class="docs-section" id="reminders">
-						<h3 class="section-heading">Reminders</h3>
+						  <h3 class="section-heading">Reminders</h3>
 
-                                                <p>The Reminders subwindow shows todo items and timers that have been added via the <i>vice</i> command-line interface;
-                                                  see <a href="#managing-information">that documentation</a> for information about the relevant commands.
-                                                  For timers, the time until the timer expires is shown.
-                                                  Both timers and todo items can be removed from the Reminders subwindow just by clicking on them.
-<div class="text-center">
-<img src="assets/vice/reminders" srcset="assets/vice/reminders-2x.gif 2x" width="352" height="105" class="img-fluid">
-</div>
+                                                  <p>The Reminders subwindow shows todo items and timers that have been added via the <i>vice</i> command-line interface;
+                                                    see <a href="#managing-information">that documentation</a> for information about the relevant commands.
+                                                    For timers, the time until the timer expires is shown.
+                                                    Both timers and todo items can be removed from the Reminders subwindow just by clicking on them.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/reminders" srcset="assets/vice/reminders-2x.gif 2x" width="352" height="105" class="img-fluid">
+                                                    </div>
 
-                                                </p>
+                                                  </p>
                                                 </section>
 
 				                <section class="docs-section" id="notes-view">
-						<h3 class="section-heading">Notes Viewer</h3>
-						<p>The notes viewer subwindow can be used to display text notes written using the <a href="#notes">Notes Editor</a>.
-                                                  One or more notes can be selected in the Notes Viewer settings and then each note can be individually selected.
-                                                  Notes can be reordered by dragging entries in the list of notes.
-                                                  In the example below, the Notes Viewer is displaying the missed approach headings and altitudes for the KJFK runways as well as the takeoff headings for runway 13 in the non-13L ILS configuration.
-                                                  From its configuration dialog box on the right, we can see that the headings for runway 13 with 13L ILS are at hand but are not displayed; in this way it's possible to have a number of possibly-relevant quickly available but not necessarily dispayed.
-<div class="text-center">
-<img src="assets/vice/notes-view.png" srcset="assets/vice/notes-view-2x.png 2x" width="688" height="319">
-</div>
-                                                </p>
-                                                In addition to displaying multiple notes in a single Notes Viewer, it can also be useful to have multiple Notes Viewer subwindows, each displaying different information.
+						  <h3 class="section-heading">Notes Viewer</h3>
+						  <p>The notes viewer subwindow can be used to display text notes written using the <a href="#notes">Notes Editor</a>.
+                                                    One or more notes can be selected in the Notes Viewer settings and then each note can be individually selected.
+                                                    Notes can be reordered by dragging entries in the list of notes.
+                                                    In the example below, the Notes Viewer is displaying the missed approach headings and altitudes for the KJFK runways as well as the takeoff headings for runway 13 in the non-13L ILS configuration.
+                                                    From its configuration dialog box on the right, we can see that the headings for runway 13 with 13L ILS are at hand but are not displayed; in this way it's possible to have a number of possibly-relevant quickly available but not necessarily dispayed.
+                                                    <div class="text-center">
+                                                      <img src="assets/vice/notes-view.png" srcset="assets/vice/notes-view-2x.png 2x" width="688" height="319">
+                                                    </div>
+                                                  </p>
+                                                  In addition to displaying multiple notes in a single Notes Viewer, it can also be useful to have multiple Notes Viewer subwindows, each displaying different information.
                                                 </section>
 
 					<section class="docs-section" id="colors">
@@ -429,7 +668,7 @@ be remedied in a future relase.)
 	                                            </h4>
                                                     <p><i>Vice</i> does not yet support alias files or binding function keys to commands;
                                                       that functionality will come in a future release.
-                                                      Therefore, it may seem that using the command-line interface will be unweildy and will require much typing.
+                                                      Therefore, it may seem that using the command-line interface will be unwieldy and will require much typing.
                                                       User-configurable aliases and function key bindings will greatly reduce the typing load,
                                                       making it easy to use familiar bindings like selecting an aircraft and hitting F3 to initiate a track.
                                                     </p>
@@ -485,7 +724,7 @@ be remedied in a future relase.)
                                               <p>In order to make it easier to select aircraft using the command-line, <i>vice</i> allows entering a partial callsign.
                                                 If the given callsign is unambiguous, then the corresponding aircraft is selected, but if multiple aircraft match, an error is issued.
                                                 In the example below, the "SWA" callsign alone is insufficient, but typing "SWA2" and hitting enter is enough to select SWA2783.
-                                                In this case, the aircraft might alternatively have been seleced by entering a partial callsign like "783".
+                                                In this case, the aircraft might alternatively have been selected by entering a partial callsign like "783".
 <div class="text-center">
 <img src="assets/vice/select-aircraft-completion.gif" srcset="assets/vice/select-aircraft-completion-2x.gif 2x" width="715" height="94" class="img-fluid">
 </div>
@@ -518,7 +757,7 @@ Note also that it is not necessarily to capitalize the letters in callsigns.
                                                   </div><!--//content-->
                                                 </div><!--//callout-block-->
 
-                                                <p>A vareity of commands are available for clearance delivery when using <i>vice</i>'s command-line interface.
+                                                <p>A variety of commands are available for clearance delivery when using <i>vice</i>'s command-line interface.
                                                   Some change individual aspects of an aircraft's flight plan and others provide information that is useful
                                                   when clearing an aircraft.
                                                   It is a good idea to have a <a href="#flight-plan">Flight Plan subwindow</a> visible as part of your Config so that you can easily check an aircraft's current flight plan and see the effect of changes you make to it as you are clearing it.
@@ -663,7 +902,7 @@ Note also that it is not necessarily to capitalize the letters in callsigns.
 		                                      </span><!--//icon-holder-->
 	                                              Note
 	                                            </h4>
-                                                    <p>The databases currently available in <i>vice</i> are addmittedly US-centric (though it does include a database of international airports).
+                                                    <p>The databases currently available in <i>vice</i> are admittedly US-centric (though it does include a database of international airports).
                                                       We'd be happy to extend it to have a wider range of data sources, given information about where to find them!
                                                     </p>
                                                   </div><!--//content-->
@@ -678,7 +917,7 @@ Note also that it is not necessarily to capitalize the letters in callsigns.
                                          One of the goals of <i>vice</i> is to make it easy to access the additional information that is useful
                                          when controlling.
                                          While experienced controllers may have little need for these functions, they are intended to be helpful for
-                                         new controllers as they are learning how to contraol aircraft in VATSIM.
+                                         new controllers as they are learning how to control aircraft in VATSIM.
                                          <table class="table table-bordered">
                                            <thead>
                                              <tr>
@@ -696,7 +935,7 @@ Note also that it is not necessarily to capitalize the letters in callsigns.
                                              </tr>
                                              <tr>
                                                <td><code>info</code>&nbsp;<i>item</i></td>
-                                               <td>Print information about the item.  If a callsign is specified, the flightplan and further
+                                               <td>Print information about the item.  If a callsign is specified, the flight plan and further
                                                  information about the aircraft is printed. For VORs and NDBs, the location and associated name
                                                  are printed. If the alphabetical part of a callsign is entered (e.g., "BAW"), the associated
                                                telephony is printed (e.g., "speedbird").</td>
@@ -937,3 +1176,6 @@ Note also that it is not necessarily to capitalize the letters in callsigns.
 </body>
 </html> 
 
+
+<!--  LocalWords:  callsign subwindow ATC
+ -->

@@ -1,12 +1,24 @@
 cd assets
 sass --watch scss:css
 
-ffmpeg -ss 00:00:50 \   # start offset
-       -i ~/Desktop/Screen\ Recording\ 2022-09-15\ at\ 10.12.44\ AM.mov \
-       -t 00:00:29 \ #  length to extract
+ffmpeg -ss 00:00:52 \ 
+       -i "`ls -t ~/Desktop/Screen\ Recording* | head -1`" \
+       -t 00:00:25 \ 
        -pix_fmt rgb24 \
-       -r 10 \  # 10 fps
+       -r 5 \  # 5 fps
        -f gif - | \
        gifsicle --optimize=3 \
-       --delay=10 \   # 100ms / frame playback rate
-       >| banner.gif
+       --delay=20 \   
+       >| video-x2.gif
+
+ffmpeg -ss 00:00:52 \ 
+       -i "`ls -t ~/Desktop/Screen\ Recording* | head -1`" \
+       -t 00:00:25 \ 
+       -pix_fmt rgb24 \
+       -r 5 \  # 5 fps
+       -f gif - | \
+       gifsicle --optimize=3 \
+       --delay=20 \  
+       --scale=0.5 \
+       >| video.gif
+
