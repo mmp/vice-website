@@ -176,13 +176,14 @@ source code distribution for details.
               reports an error that it cannot recover from, or even if it is doing something that doesn't seem quite
               right.
             </p>
-            <p>Bugs can be reported via email at <i>bugs@vice.pharr.org</i>. In your bug report, please include:
+            <p>Bugs can be reported via email at <i>bugs@vice.pharr.org</i>. In your bug report, please include:</p>
               <ol>
                 <li>A description of what you were doing and how <i>vice</i> responded. If what it's drawing on the
                   screen is garbled or otherwise incorrect, including a screenshot would be helpful, if you're able.</li>
                 <li><i>Vice</i>'s log files from your controlling session; after you exit <i>Vice</i>, it will save a log
                   file for your session. On Windows, it's in your <code>AppData</code> folder in <code>Roaming/Vice/vice.log</code> and on Mac, it's in <code>Library/Application Support/Vice/vice.log</code>. Attaching that file to a bug report will greatly help with fixing the issue. Note that this file is overwritten each time you quit <i>vice</i>, so be sure not restart <i>vice</i> before attaching it to a bug report and sending the email. </li>
               </ol>
+              <p>
               If you happen to have a github account, bugs can also be reported in the <i>vice</i> <a href="https://github.com/mmp/vice/issues">issue tracker</a> there, but there is no need to make a github account to report a bug if you don't already have one.
             </p>
             <p>Also, if you find any errors or omissions in this documentation, please email <i>bugs@vice.pharr.org</i>.
@@ -466,7 +467,7 @@ source code distribution for details.
             </div>
           </section>
 
-          <section class="docs-section" id="scope-range indicators">
+          <section class="docs-section" id="scope-range-indicators">
             <h4 class="section-heading">Range Indicators</h4>
 
             <p>If the "Range indicators" option is selected, a number of additional sliders and buttons appear.
@@ -573,12 +574,10 @@ source code distribution for details.
               Thus, if you're controlling multiple airports, you might have all of them represented in a single Aircraft Information subwindow,
               or you might have multiple subwindows, one for each airport.
             </p>
-            <p>
-              Here is an example of its contents:
-              <div class="text-center">
-                <img src="assets/vice/airport-info-full.png" srcset="assets/vice/airport-info-full-2x.png 2x" width="512" height="577">
-              </div>
-            </p>
+            <p>Here is an example of its contents:</p>
+            <div class="text-center">
+              <img src="assets/vice/airport-info-full.png" srcset="assets/vice/airport-info-full-2x.png 2x" width="512" height="577">
+            </div>
             <p>
               There's a lot of text there, but what is there is carefully selected and is organized to be easily accessible by the controller.
               Not all of these things need to be displayed; which of them are there can be configured via the Airport Information subwindow's settings window.
@@ -758,10 +757,10 @@ source code distribution for details.
             <p>A key concept for working with the CLI is the <b>currently-selected aircraft</b>.
               Clicking on an aircraft's track or datablock in a radar scope selects it, and entering an aircraft's callsign in the CLI causes it to become the currently-selected aircraft.
               The currently-selected aircraft is indicated with a distinct color for its datablock in radar scopes and by its callsign being shown in the CLI prompt. For example, AAL1575 is the selected aircraft below:
-              <div class="text-center">
-                <img src="assets/vice/selected-aircraft.png" srcset="assets/vice/selected-aircraft-2x.png 2x" width="713" height="53">
-              </div>
             </p>
+            <div class="text-center">
+              <img src="assets/vice/selected-aircraft.png" srcset="assets/vice/selected-aircraft-2x.png 2x" width="713" height="53">
+            </div>
             <p>
               For all of the commands that operate on aircraft, the currently-selected aircraft is used by default, unless another aircraft is specified explicitly.
             </p>
@@ -816,7 +815,7 @@ source code distribution for details.
               It is a good idea to have a <a href="#flight-plan">Flight Plan subwindow</a> visible as part of your Config so that you can easily check an aircraft's current flight plan and see the effect of changes you make to it as you are clearing it.
             </p>
             
-            <p>The following commands modify components of a flight plan:
+            <p>The following commands modify components of a flight plan:</p>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -878,7 +877,6 @@ source code distribution for details.
                   </tr>
                 </tbody>
               </table>
-            </p>
             <p>
               All of these commands use the currently-selected aircraft, if there is one.
               For example, if UAL955 is selected, then its type can be set simply by typing <code>actype B772/G</code>;
@@ -891,7 +889,7 @@ source code distribution for details.
             <p>If only a minor modification to the route is necessary, then it's undesirable to  have to reenter all of it using the <code>route</code> command.
               For such cases, the <code>editroute</code> command is available.
               It loads the specified aircraft's route into the command-line input, ready to be directly edited.
-              After you correct it, hitting enter causes the <code>route</code> command to be executed.
+              After you correct it, hitting enter causes the <code>route</code> command to be executed.</p>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -908,7 +906,7 @@ source code distribution for details.
                   </tr>
                 </tbody>
               </table>
-              An example of its use is below. After <code>editroute aal284</code> is entered, the <code>route</code> command is automatically generated and the cursor is positioned at the start of the current route, making it easy to make changes.
+              <p>An example of its use is below. After <code>editroute aal284</code> is entered, the <code>route</code> command is automatically generated and the cursor is positioned at the start of the current route, making it easy to make changes.
             </p>
             <div class="text-center">
               <img src="assets/vice/editroute.gif" srcset="assets/vice/editroute-2x.gif 2x" width="715" height="91" class="img-fluid">
@@ -1029,7 +1027,7 @@ source code distribution for details.
           <section class="docs-section" id="tracks-handoffs">
             <h2 class="section-heading">Tracking and Handoffs</h2>
 
-            <p>Another group of commands takes care of actions that are performed for aircraft that are in flight.
+            <p>Another group of commands takes care of actions that are performed for aircraft that are in flight.</p>
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -1076,7 +1074,7 @@ source code distribution for details.
                   </tr>
                 </tbody>
               </table>
-              As with earlier commands, if there is a currently-selected aircraft, then the callsign need not be specified.
+              <p>As with earlier commands, if there is a currently-selected aircraft, then the callsign need not be specified.
               Further, as before, aircraft callsigns may be abbreviated when the abbreviation is unambiguous.
               Finally, as with the <code>alt</code> command, the altitude specified with <code>tempalt</code> may either be in feet or in hundreds of feet.
             </p>
