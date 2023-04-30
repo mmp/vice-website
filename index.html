@@ -810,7 +810,7 @@
                 <p>Your browser may warn about the installer being from an unknown publisher and when you run the installer, Windows will put up a window informing you that it has protected your PC and prevented the installer from running. Click "More Info" and then "Run anyway" to proceed with installation.</p>
               </div><!--//callout-block-->
             </div><!--//content-->
-            <a href="https://github.com/mmp/vice/releases/download/v0.6.3/Vice-v0.6.3-installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.6.3 for Windows</a>
+            <a href="https://github.com/mmp/vice/releases/download/v0.6.6/Vice-v0.6.6-installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.6.6 for Windows</a>
           </section><!--//section-->
           
           <section class="docs-section" id="install-mac">
@@ -819,7 +819,7 @@
             <p>On a Mac, download the <i>zip</i> file below; it contains a universal binary that runs
               on both Intel and Apple CPUs. Note that MacOS Big Sur or a more recent version of OSX is required.
               After opening the <i>zip</i> file, drag <i>Vice.app</i> to your <i>Applications</i> folder to install it.</p>
-            <a href="https://github.com/mmp/vice/releases/download/v0.6.3/Vice-v0.6.3-osx.zip" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v.0.6.3 for Mac</a>
+            <a href="https://github.com/mmp/vice/releases/download/v0.6.6/Vice-v0.6.6-osx.zip" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v.0.6.6 for Mac</a>
           </section><!--//section-->
 
           <section class="docs-section" id="install-linux">
@@ -861,6 +861,10 @@ how it simulates aircraft or the STARS interface.
                 launching vice.</li>
               <li>0.6.2: Added go arounds and ABE TRACON scenarios.</li>
               <li>0.6.3: Added KJAX scenarios for F11. Updated PHL scenarios for arrival changes.</li>
+              <li>0.6.4: Fixed a bug with intercepting the localizer that occasionally led to aircraft hanging in the air for a while
+                before proceeding.</li>
+              <li>0.6.5: Fixed <emph>another</emph> bug with intercepting the localizer.</li>
+              <li>0.6.6: Small KJAX scenario fixes and added ISP and HVN arrivals/departures to the JFK scenario.</li>
             </ul>
 
           </section><!--//section-->
@@ -1254,6 +1258,11 @@ how it simulates aircraft or the STARS interface.
                   the type of aircraft flown, and information about the aircraft's path.  See below for details of the departure object.</td>
               </tr>
               <tr>
+                <td>"departure_controller"</td>
+                <td>String</td>
+                <td>If specified, gives the virtual controller initially controlling the aircraft.</td>
+              </tr>
+              <tr>
                 <td>"elevation"</td>
                 <td>Number</td>
                 <td>The airport's elevation in feet</td>
@@ -1374,6 +1383,14 @@ how it simulates aircraft or the STARS interface.
                 <td>"cleared_altitude"</td>
                 <td>Number</td>
                 <td>The altitude to which the aircraft is descending when first spawned.</td>
+              </tr>
+              <tr>
+                <td>"cruise_altitude"</td>
+                <td>Number</td>
+                <td>The aircraft's final cruise altitude. (This is only
+                used in the aircraft's flight strip.) If
+                unspecified, <i>vice</i> tries to choose a reasonable
+                cruise altitude based on the distance and direction of flight.</td>
               </tr>
               <tr>
                 <td>"initial_altitude"</td>
