@@ -98,7 +98,7 @@
                    capture of demo">
             </div>
             <br>
-	    <h1 class="docs-heading">About Vice <span class="docs-time">Last updated: 2023-09-08</span></h1>
+	    <h1 class="docs-heading">About Vice <span class="docs-time">Last updated: 2023-09-26</span></h1>
 
 	    <section class="docs-intro">
 	      <p><i>vice</i> is an air traffic control simulator, focused on TRACON.
@@ -108,9 +108,16 @@
                 It presents a STARS-like interface, but with simulated traffic and other controllers.
               </p>
               <p><i>vice</i> supports departure and arrival control
-                scenarios in a number of TRACONs: A80 (ATL), A90 (BOS), C90 (ORD, MDW), F11 (JAX, MCO, SFB, ISM, ORL), 
+                scenarios in a number of TRACONs:
+                A80 (ATL),
+                A90 (BOS),
+                C90 (ORD, MDW),
+                D01 (DEN),
+                F11 (JAX, MCO, SFB, ISM, ORL), 
                 N90 (EWR, JFK, LGA, FRG, ISP, HVN),
-                as well as the ABE, CLE, CLT, DAB, JAX, and PHL ATCT/TRACONs.
+                as well as the
+                AAC, ABE, CLE, CLT, DAB, JAX, PHL, SAV, and SDF
+                ATCT/TRACONs.
                 New scenarios are regularly added.
                 Adding scenarios at more airports is a matter of writing JSON configuration files that describe them;
                 see <a href="#section-facility-engineering">below</a> for documentation about how scenarios are described
@@ -343,14 +350,36 @@
                   </tr>
                   <tr>
                     <td><code>C</code><i>alt</i></td>
-                    <td>Directs the aircraft to climb to the specified altitude, which is given in hundreds of feet.</td>
+                    <td>Directs the aircraft to climb to the specified
+                      altitude, which is given in hundreds of feet.
+                      If the aircraft is changing speed, both the speed
+                      change and climb are simultaneous.
+                    </td>
                     <td><code>C170</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>TC</code><i>alt</i></td>
+                    <td>Directs the aircraft to climb to the specified
+                      altitude, given in hundreds of feet, after it
+                      finishes speeding up or slowing down to meet a
+                      controller-specified speed.
+                    </td>
+                    <td><code>TC170</code></td>
                   </tr>
                   <tr>
                     <td><code>D</code><i>alt</i></td>
                     <td>Directs the aircraft to descend to the specified
                     altitude, given in hundreds of feet.</td>
                     <td><code>D20</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>TD</code><i>alt</i></td>
+                    <td>Directs the aircraft to descend to the specified
+                      altitude, given in hundreds of feet, after it
+                      finishes speeding up or slowing down to meet a
+                      controller-specified speed.
+                    </td>
+                    <td><code>TD20</code></td>
                   </tr>
                   <tr>
                     <td><code>ED</code></td>
@@ -366,10 +395,22 @@
                   </tr>
                   <tr>
                     <td><code>S</code><i>knots</i></td>
-                    <td>Gives the aircraft a speed restriction.  If the restriction is given after an aircraft is cleared for an approach,
-                      the speed restriction is in effect until 5 mile final.  If no speed is given, then the aircraft is instructed
-                    "cancel speed restrictions".</td>
+                    <td>Gives the aircraft a speed restriction.
+                      If the restriction is given after an aircraft is cleared for an approach,
+                      the speed restriction is in effect until 5 mile
+                      final.  If no speed is given, then the aircraft is instructed
+                      "cancel speed restrictions".  Speed changes happen at
+                      the same time as any required altitude change.</td>
                     <td><code>S210</code>, <code>S</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>TS</code><i>knots</i></td>
+                    <td>Gives the aircraft a speed restriction to be
+                      applied after the aircraft climbs or descends to the
+                      most recent controller-specified altitude.
+                      As with <code>S</code>, speed restrictions are
+                      canceled at 5 mile final.</td>
+                    <td><code>TS210</code></td>
                   </tr>
                   <tr>
                     <td><code>SMIN</code></td>
@@ -561,7 +602,7 @@
                 <p>Your browser may warn about the installer being from an unknown publisher and when you run the installer, Windows will put up a window informing you that it has protected your PC and prevented the installer from running. Click "More Info" and then "Run anyway" to proceed with installation.</p>
               </div><!--//callout-block-->
             </div><!--//content-->
-            <a href="https://github.com/mmp/vice/releases/download/v0.10.7/Vice-v0.10.7-installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.10.7 for Windows</a>
+            <a href="https://github.com/mmp/vice/releases/download/v0.10.8/Vice-v0.10.8-installer.msi" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.10.8 for Windows</a>
           </section><!--//section-->
           
           <section class="docs-section" id="install-mac">
@@ -570,7 +611,7 @@
             <p>On a Mac, download the <i>zip</i> file below; it contains a universal binary that runs
               on both Intel and Apple CPUs. Note that MacOS Big Sur or a more recent version of OSX is required.
               After opening the <i>zip</i> file, drag <i>Vice.app</i> to your <i>Applications</i> folder to install it.</p>
-            <a href="https://github.com/mmp/vice/releases/download/v0.10.7/Vice-v0.10.7-osx.zip" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.10.7 for Mac</a>
+            <a href="https://github.com/mmp/vice/releases/download/v0.10.8/Vice-v0.10.8-osx.zip" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Vice v0.10.8 for Mac</a>
           </section><!--//section-->
 
           <section class="docs-section" id="install-linux">
@@ -597,6 +638,34 @@ how it simulates aircraft or the STARS interface.
           <section class="docs-section" id="releases">
             <h2 class="section-heading">Release History</h2>
 
+            <h3>0.10.8 (26 September 2023)</h3>
+            <ul>
+              <li>When altitude and speed instructions are given, aircraft
+                now do both at once.  To give consecutive commands (e.g.,
+                "descend and maintain xxx, then reduce speed to yyy"),
+                there is now a <code>TS</code> command for "then speed",
+                and <code>TA</code> for "then altitude", or <code>TC</code>
+                for "then climb", or <code>TD</code> for "then descend".
+                (See the <a href="#commands">ATC command reference</a> for
+                details.)
+              </li>
+              <li>Updates to the JAX, C90, and F11 scenarios and a new
+              D01/KSAV/KSDF scenario (Thanks to Mike D and Samuel
+                Valencia!)</li>
+              <li>Added a new scenario for KAAC/KJKE.</li>
+              <li>Facility engineering changes:</li>
+              <ul>
+                <li>DME arcs can now be <a href="#fe-routes">specified with approaches</a>.</li>
+                <li>Scratchpads may be <a href="#fe-airports">specified
+                    individually with departures</a>.</li>
+                <li>Fixes can now be specified with respect to a distance
+                  along a radial from another fix.</li>
+              </ul>
+              <li>Various small bugfixes related to aircraft navigation and
+                clearing approaches at fixes.
+                </li>
+            </ul>
+            
             <h3>0.10.7 (8 September 2023)</h3>
             <ul>
               <li>Fixed a bug where arrivals would disappear in some
@@ -850,6 +919,18 @@ how it simulates aircraft or the STARS interface.
                 In this case, <i>vice</i> will automatically use the video map file you specified via <tt>-videomap</tt>
                 or via the UI.
               </p>
+              <p>If you're working on multi-controller support for a
+              scenario, you may want to run a <i>vice</i> server locally to
+                debug it. A few command-line options are useful:</p>
+              <ul>
+                <li><tt>-runserver</tt> launches a <i>vice</i> server on
+                your local system</li>
+                <li><tt>-server</tt> specifies the IP address and port of a <i>vice</i>
+                  server to connect to. Specifying <tt>localhost:8000</tt>
+                  will connect to a local server launched via <tt>-runserver</tt>.</li>
+                <li><tt>-port</tt> allows specifying a custom port number
+                for the server to listen to.</li>
+                </ul>
 
             </section><!--//docs-intro-->
           </header>
@@ -933,6 +1014,14 @@ how it simulates aircraft or the STARS interface.
               <li> <code>/s</code><i>speed</i>: cross the fix at the given speed</li>
               <li> <code>/ho</code>: the aircraft should be handed off from the virtual controller to the user when it departs the fix</li>              
             </ul>
+            <p>If the aircraft should follow a DME arc leaving a
+              fix, <code>/arc</code> can be given after the fix. It takes
+              both a radius in nautical miles as well as the fix at the
+              center of the arc's circle.  For
+              example, <code>HANAV/arc16OMN</code> specifies a 16nm radius
+              arc centered at <code>OMN</code>.  The direction of the arc is
+              automatically determined based on the position of the following fix.
+              </p>
             <p>For approach fixes that have procedure turns, a number of additional items can be specified:</p>
             <ul>
               <li><code>/hilpt</code>: there is a hold in lieu of procedure turn (i.e., a racetrack procedure turn) associated with the fix.
@@ -1073,9 +1162,18 @@ how it simulates aircraft or the STARS interface.
               <tr>
                 <td>"fixes"</td>
                 <td>Object</td>
-                <td>Each member associates a name with a latitude-longitude location. These names can be used when specifying
+                <td><p>Each member associates a name with a latitude-longitude location. These names can be used when specifying
                   routes for departures and arrivals. (Note that they cannot be used when specifying other locations in the scenario group configuration.)
-                  For example, this associates a useful name with the point at the end of runway 22R at JFK: <code>"_JFK_22R": "N040.39.00.362,W073.45.49.053"</code>.
+                  For example, this associates a useful name with the point
+                  at the end of runway 22R at JFK: <code>"_JFK_22R":
+                      "N040.39.00.362,W073.45.49.053"</code>.</p>
+                  <p>Fixes may be specified in relation to
+                  previously-specified fixes (or standard fixes from the
+                  FAA database) using the syntax <i>FIX@HDG/DIST</i>,
+                    where <i>FIX</i> is the name of a fix, <i>HDG</i> is a
+                  heading leaving it, and <i>DIST</i> is a distance along
+                  that heading given in nautical miles.
+                  </p>
                 </td>
               </tr>
               <tr>
@@ -1378,7 +1476,8 @@ how it simulates aircraft or the STARS interface.
       ],
       "destination": "LPFG",
       "exit": "HAPIE",
-      "route": "HAPIE YAHOO WHALE N251A JOOPY NATZ MALOT NATZ GISTI LESLU M142 LND N160 NAKID M25 ANNET UM25 UVSUV UM25 INGOR UM25 LUKIP LUKIP9E"
+      "route": "HAPIE YAHOO WHALE N251A JOOPY NATZ MALOT NATZ GISTI LESLU M142 LND N160 NAKID M25 ANNET UM25 UVSUV UM25 INGOR UM25 LUKIP LUKIP9E",
+      "scratchpad": "HAP",
     },
   ...
             </pre>
@@ -1393,6 +1492,10 @@ how it simulates aircraft or the STARS interface.
                 <li>"route": the aircraft's route to the destination. This is mostly used so that flight strips have plausible routes, though
                   <i>vice</i> does its best to have the aircraft follow the given route after it reaches the exit fix.
               </ul>
+              <p>The "scratchpad" field is optional; if specified, it gives
+              the aircraft's initial scratchpad. Otherwise, the scratchpad
+              is set based on the exit, using the "scratchpads" dictionary
+              in the scenario definition.</p>
 
           </section><!--//section-->
 
